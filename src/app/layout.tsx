@@ -9,8 +9,11 @@ const ibmPlexMono = IBM_Plex_Mono({
 })
 
 export const metadata: Metadata = {
-  title: 'Yuvraj Biswal - Portfolio',
+  title: 'Yuvraj Portfolio',
   description: 'Computer Science Student and Web Developer',
+  icons: {
+    icon: '/favicon.png',
+  },
 }
 
 export default function RootLayout({
