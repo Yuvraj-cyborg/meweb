@@ -6,7 +6,7 @@ export default function Home() {
       <h1>Yuvraj Biswal</h1>
       <br/>
       <p>
-        I'm a Computer Science student and web developer with hands-on experience in full-stack development,
+        I&apos;m a Computer Science student and web developer with hands-on experience in full-stack development,
         cloud infrastructure, and emerging tech like generative AI and Web3. I enjoy solving complex problems and building
         scalable, user-focused applications.
       </p>

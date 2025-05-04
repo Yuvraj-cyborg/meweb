@@ -5,7 +5,7 @@ export default function About() {
         
         <div className="space-y-4 text-sm leading-6">
           <p>
-            I'm a second-year Computer Science student at Silicon University with hands-on experience in full-stack web development. 
+            I&apos;m a second-year Computer Science student at Silicon University with hands-on experience in full-stack web development. 
             I specialize in building scalable applications using modern technologies like React, Nest, and PostgressSQL.
           </p>
           
