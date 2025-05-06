@@ -33,14 +33,14 @@ export default function Home() {
 
       <h2 className="mt-12 mb-6">Featured Posts</h2>
       <div className="space-y-4">
-        <article className="space-y-2">
-          <h3 className="text-lg font-medium hover:text-gray-600">
+        <article className="space-y-2 flex flex-row gap-4">
+          <h3 className="text-md font-normal hover:text-gray-600">
             <Link href="/blog/hello-world">
-              Memory Safety in Rust: Ownership, Borrowing & References Explained
+              Memory Safety in Rust: Ownership, Borrowing & References
             </Link>
           </h3>
-          <time className="text-sm text-gray-500">May 07, 2025</time>
-          <p className="text-gray-700">Learn how Rust prevents memory errors at compile time through its unique ownership system</p>
+
+          <time className="text-sm text-gray-500">May 07 2025</time>
         </article>
       </div>
     </>
