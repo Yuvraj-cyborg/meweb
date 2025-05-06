@@ -15,9 +15,9 @@ export default function Comments() {
         lang="en"
         loading="lazy"
         repo="Yuvraj-cyborg/meweb"
-        repoId="R_kgDOLP0YNA"
+        repoId="R_kgDOOkYzOQ"
         category="General"
-        categoryId="DIC_kwDOLP0YNM4CdoYr"
+        categoryId="DIC_kwDOOkYzOc4Cp1hy"
       />
     </div>
   )
