@@ -7,6 +7,7 @@ export default function Header() {
         <Link href="/" className="hover:underline">Index</Link>
         <Link href="/about" className="hover:underline">About</Link>
         <Link href="/blog" className="hover:underline">Blog</Link>
+        <Link href="/work" className="hover:underline">Work</Link>
         <Link href="/now" className="hover:underline">Now</Link>
       </nav>
     </header>
