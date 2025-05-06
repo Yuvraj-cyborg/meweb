@@ -55,6 +55,6 @@ export async function getPostBySlug(slug: string): Promise<BlogPost | null> {
       ...(data as { title: string; date: string; description: string })
     }
   } catch (error) {
-    return null
-  }
+    console.error('Failed to load MDX post:', error)
+    return null;  }
 }
