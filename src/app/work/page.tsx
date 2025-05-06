@@ -64,12 +64,12 @@ const projects: Project[] = [
 export default function WorkPage() {
   return (
     <div className="space-y-10 py-4">
-      <h1 className="text-xl font-bold mb-8">Projects</h1>
+        <h1 className="text-3xl mb-6">Projects</h1>
       
       <div className="space-y-12">
         {projects.map((project, index) => (
           <div key={index} className="space-y-4">
-            <h2 className="text-md font-semibold">
+            <h2 className="text-lg">
               {project.title}
             </h2>
             

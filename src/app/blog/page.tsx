@@ -11,7 +11,7 @@ export default function Blog() {
       <div className="space-y-8">
         {posts.map((post) => (
           <article key={post.slug} className="space-y-2">
-            <h2 className="text-xl font-medium hover:text-gray-600">
+            <h2 className="text-xl hover:text-gray-600">
               <Link href={`/blog/${post.slug}`}>
                 {post.title}
               </Link>
