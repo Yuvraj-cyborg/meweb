@@ -3,6 +3,7 @@ import { IBM_Plex_Mono } from 'next/font/google'
 import './globals.css'
 import './prism.css'
 import Header from '@/components/Header'
+import { Analytics } from "@vercel/analytics/next"
 
 const ibmPlexMono = IBM_Plex_Mono({ 
   weight: ['400', '500'],
@@ -32,6 +33,7 @@ export default function RootLayout({
         </div>
         <main className="prose prose-neutral max-w-none">
           {children}
+          <Analytics />
         </main>
       </body>
     </html>
