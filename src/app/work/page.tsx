@@ -52,11 +52,26 @@ const projects: Project[] = [
     ]
   },
   {
-    title: "AI-content generator",
-    description: "A service for automated content creation",
+    title: "QuikBase - Database API Service",
+    repoUrl: "https://github.com/Yuvraj-cyborg/quikbase",
+    description: "A Go-based web application providing robust RESTful API services with PostgreSQL integration",
     details: [
-      "Leveraged Next.js, MongoDB, and Clerk for seamless auth and user sessions.",
-      "Integrated Gemini API and Stable Diffusion for high-quality media generation."
+      "Developed using Go and Gin web framework for high-performance API endpoints",
+      "Implemented secure user management system with encrypted password handling",
+      "Integrated PostgreSQL for reliable data persistence and complex queries",
+      "Containerized the application using Docker for consistent deployment",
+    ]
+  },
+  {
+    title: "Maze Wizard - AI-Powered Dungeon Chase",
+    description: "A Rust-based 2D dungeon chase game featuring an evolving AI enemy using reinforcement learning",
+    repoUrl: "https://github.com/Yuvraj-cyborg/Maze-Wizard",
+    details: [
+      "Built with Bevy game engine in Rust, implementing both traditional pathfinding and AI-based enemy behavior",
+      "Integrated A* pathfinding algorithm for initial enemy movement patterns",
+      "Developed a custom reinforcement learning system using Q-Learning from scratch in Rust",
+      "Implemented a reward-penalty mechanism for the AI to learn and adapt from previous gameplay rounds",
+      "Created an evolving difficulty system where the enemy becomes more challenging as it learns from player interactions"
     ]
   }
 ];
