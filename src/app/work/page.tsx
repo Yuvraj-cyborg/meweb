@@ -42,16 +42,6 @@ const projects: Project[] = [
     ]
   },
   {
-    title: "Full Stack Youtube Clone",
-    repoUrl: "https://github.com/Yuvraj-cyborg/youtube-clone-nuxt",
-    description: "A functional clone of YouTube featuring video playback and search",
-    details: [
-      "Used Nuxt.js and Tailwind CSS for responsive, accessible design.",
-      "Integrated YouTube API for video search and playback.",
-      "Applied server-side rendering (SSR) and optimized state management."
-    ]
-  },
-  {
     title: "QuikBase - Database API Service",
     repoUrl: "https://github.com/Yuvraj-cyborg/quikbase",
     description: "A Go-based web application providing robust RESTful API services with PostgreSQL integration",
@@ -73,7 +63,17 @@ const projects: Project[] = [
       "Implemented a reward-penalty mechanism for the AI to learn and adapt from previous gameplay rounds",
       "Created an evolving difficulty system where the enemy becomes more challenging as it learns from player interactions"
     ]
-  }
+  },
+  {
+    title: "Full Stack Youtube Clone",
+    liveUrl: "https://youtube-clone-nuxt.vercel.app",
+    description: "A functional clone of YouTube featuring video playback and search",
+    details: [
+      "Used Nuxt.js and Tailwind CSS for responsive, accessible design.",
+      "Integrated YouTube API for video search and playback.",
+      "Applied server-side rendering (SSR) and optimized state management."
+    ]
+  },
 ];
 
 export default function WorkPage() {
