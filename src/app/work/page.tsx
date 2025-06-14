@@ -33,7 +33,7 @@ const projects: Project[] = [
   },
   {
     title: "Rust CLI",
-    repoUrl: "https://github.com/Yuvraj-cyborg/RUST",
+    repoUrl: "https://github.com/Yuvraj-cyborg/TODO_CLI_RUST",
     description: "Command-line application managing tasks",
     details: [
       "Supported CRUD operations via simple command-line inputs.",
