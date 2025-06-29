@@ -32,13 +32,14 @@ const projects: Project[] = [
     ]
   },
   {
-    title: "Rust CLI",
-    repoUrl: "https://github.com/Yuvraj-cyborg/TODO_CLI_RUST",
-    description: "Command-line application managing tasks",
+    title: "Lexy - OS",
+    repoUrl: "https://github.com/Yuvraj-cyborg/lexy",
+    description: "An operating system in rust",
     details: [
-      "Supported CRUD operations via simple command-line inputs.",
-      "Used MongoDB for persistent task storage and multi-user support.",
-      "Prioritized speed, minimalism, and offline functionality."
+      "Isolates the BIOS from current OS and runs in independently",
+      "Currently supports writing strings",
+      "compiles binaries for the custom OS and succefully displays it",
+      "Will update it soon.."
     ]
   },
   {
