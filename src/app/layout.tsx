@@ -4,7 +4,7 @@ import './globals.css'
 import './prism.css'
 import Header from '@/components/Header'
 import { Analytics } from "@vercel/analytics/next"
-import { PostHogProvider } from 'posthog-js/react'
+import { PostHogProvider } from './providers'
 
 const ibmPlexMono = IBM_Plex_Mono({ 
   weight: ['400', '500'],
@@ -32,12 +32,12 @@ export default function RootLayout({
           <Header/>
           </div>
         </div>
-        <main className="prose prose-neutral max-w-none">
-          <PostHogProvider apiKey={process.env.NEXT_PUBLIC_POSTHOG_KEY || ''}>
-          {children}
+        <div className="prose prose-neutral max-w-none">
+          <PostHogProvider>
+            {children}
           </PostHogProvider>
           <Analytics />
-        </main>
+        </div>
       </body>
     </html>
   )
