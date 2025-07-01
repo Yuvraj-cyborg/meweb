@@ -1,7 +1,21 @@
-import { Github, Twitter, NotebookText } from "lucide-react"
+"use client"
+
+import { useState } from "react"
+import { Github, Twitter, NotebookText, Coffee } from "lucide-react"
+import { SiSolana } from "react-icons/si"
 import Link from 'next/link'
 
 export default function Home() {
+  const [copied, setCopied] = useState(false)
+  const solanaAddress = "CVzTKtNwLouYs7ua2zMRshSS5LEKYUTE1mcwKqGXJcvP"
+
+  const handleCopy = () => {
+    navigator.clipboard.writeText(solanaAddress).then(() => {
+      setCopied(true)
+      setTimeout(() => setCopied(false), 2000)
+    })
+  }
+
   return (
     <>
       <h1>Yuvraj Biswal</h1>
@@ -25,10 +39,21 @@ export default function Home() {
           <NotebookText size={16} />
           Resume
         </a>
+        <a href="https://www.buymeacoffee.com/yuvrajbiswg" className="inline-flex items-center px-4 py-1 border rounded hover:bg-gray-50 text-sm gap-2">
+          <Coffee size={16} />
+          Buymecoffee
+        </a>
         <a href="https://x.com/YuvrajBiswal3" className="inline-flex items-center px-4 py-1 border rounded hover:bg-gray-50 text-sm gap-2">
           <Twitter size={16} />
           Twitter
         </a>
+        <button
+          onClick={handleCopy}
+          className="inline-flex items-center px-4 py-1 border rounded hover:bg-gray-50 text-sm gap-2"
+        >
+          <SiSolana size={16}/>
+          {copied ? "Copied!" : "Solana"}
+        </button>
       </div>
 
       <h2 className="mt-12 mb-6">Featured Posts</h2>
