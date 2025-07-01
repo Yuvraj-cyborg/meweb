@@ -1,7 +1,7 @@
 import React from 'react';
 import Link from 'next/link';
 import Image from 'next/image';
-import { FaGlobe, FaDatabase, FaGamepad, FaGraduationCap, FaYoutube, FaMicrochip } from 'react-icons/fa';
+import { FaGlobe, FaDatabase, FaGamepad, FaGraduationCap, FaYoutube } from 'react-icons/fa';
 import { GiDragonHead } from 'react-icons/gi';
 
 interface Project {
@@ -94,15 +94,6 @@ const projects: Project[] = [
   },
 ];
 
-const techIcons: { [key: string]: string } = {
-  "React": "/tech-icons/react.svg",
-  "Java": "/tech-icons/java.svg",
-  "Go": "/tech-icons/go.svg",
-  "Rust": "/tech-icons/rust.svg",
-  "PostgreSQL": "/tech-icons/postgresql.svg",
-  "Docker": "/tech-icons/docker.svg",
-  "Nuxt.js": "/tech-icons/nuxt.svg",
-};
 
 export default function WorkPage() {
   return (
