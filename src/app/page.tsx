@@ -2,7 +2,6 @@
 
 import { Github, Twitter, NotebookText, Heart, Coffee } from "lucide-react"
 import Link from 'next/link'
-import Script from 'next/script'
 import { useState } from "react"
 import { SiSolana } from "react-icons/si"
 import Modal from "@/components/Modal"
