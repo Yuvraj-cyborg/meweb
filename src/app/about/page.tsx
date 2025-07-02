@@ -30,6 +30,17 @@ export default function About() {
               Designed and delivered Vue.js courses from beginner to advanced levels with project-based curriculum.
             </p>
           </div>
+
+          <h2 className="text-xl mt-8 mb-4">Feedback</h2>
+          <p>
+            Have feedback on my portfolio? I&apos;d love to hear it!
+          </p>
+          <a 
+            href="mailto:yuvrajbiswalofficial@gmail.com?subject=Portfolio Feedback"
+            className="inline-block px-4 py-2 mb-4 text-sm font-medium border border-black rounded-lg hover:bg-black hover:text-white transition-colors duration-300"
+          >
+            Send Feedback
+          </a>
         </div>
       </main>
     )

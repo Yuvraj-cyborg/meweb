@@ -14,6 +14,7 @@ const ibmPlexMono = IBM_Plex_Mono({
 export const metadata: Metadata = {
   title: 'Yuvraj Portfolio',
   description: 'Computer Science Student and Web Developer',
+  keywords: ['Yuvraj Portfolio', 'Yuvraj Dev', 'yuvi portfolio', 'uv portfolio', 'Yuvraj profile', 'web developer', 'Next.js developer', 'frontend developer'],
   icons: {
     icon: '/favicon.png',
   },
