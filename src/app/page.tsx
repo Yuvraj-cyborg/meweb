@@ -38,7 +38,7 @@ export default function Home() {
           <Github size={16}/>
           Code
         </a>
-        <a href="/resume.pdf" className="inline-flex items-center px-4 py-1 border rounded hover:bg-gray-50 text-sm gap-2">
+        <a href="/resume-new.pdf" className="inline-flex items-center px-4 py-1 border rounded hover:bg-gray-50 text-sm gap-2">
           <NotebookText size={16} />
           Resume
         </a>
