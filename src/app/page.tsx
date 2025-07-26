@@ -70,7 +70,7 @@ export default function Home() {
       <div className="space-y-4">
         <article className="space-y-2 flex flex-row gap-4">
           <h3 className="text-md font-normal hover:text-gray-600">
-            <Link href="/blog/hello-world">
+            <Link href="/blog/rusty-blog">
               Memory Safety in Rust: Ownership, Borrowing & References
             </Link>
           </h3>
