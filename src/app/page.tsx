@@ -1,14 +1,11 @@
 "use client"
 
-import { Github, Twitter, NotebookText, Heart, Coffee } from "lucide-react"
+import { Github, Twitter, NotebookText, Coffee } from "lucide-react"
 import Link from 'next/link'
 import { useState } from "react"
 import { SiSolana } from "react-icons/si"
-import Modal from "@/components/Modal"
-import Image from "next/image"
 
 export default function Home() {
-  const [isModalOpen, setIsModalOpen] = useState(false)
   const [copied, setCopied] = useState(false)
   const solanaAddress = "CVzTKtNwLouYs7ua2zMRshSS5LEKYUTE1mcwKqGXJcvP"
 
@@ -57,13 +54,6 @@ export default function Home() {
           <SiSolana size={16} />
           {copied ? "Copied!" : "Solana"}
         </button>
-        <button
-          onClick={() => setIsModalOpen(true)}
-          className="inline-flex items-center px-4 py-1 border rounded hover:bg-gray-50 text-sm gap-2"
-        >
-          <Heart size={16} />
-          Support Me
-        </button>
       </div>
 
       <h2 className="mt-12 mb-6">Featured Posts</h2>
@@ -78,23 +68,6 @@ export default function Home() {
           <time className="text-sm text-gray-500">May 07 2025</time>
         </article>
       </div>
-      <Modal isOpen={isModalOpen} onClose={() => setIsModalOpen(false)}>
-        <div className="text-center">
-          <h3 className="text-lg font-medium mb-4">Support Me</h3>
-          <p className="text-sm text-gray-600 mb-4">
-            If you like my work, consider supporting me. It helps me to keep creating and maintaining open-source projects.
-          </p>
-          <div className="flex justify-center">
-            <Image
-              src="/upi-qr.jpeg"
-              alt="UPI QR Code"
-              width={200}
-              height={200}
-            />
-          </div>
-          <p className="text-xs text-gray-500 mt-2">Scan with any UPI app</p>
-        </div>
-      </Modal>
     </>
   )
 }
