@@ -46,7 +46,7 @@ export default function Home() {
           <Coffee size={16} />
           Buymecoffee
         </a>
-        <a href="https://x.com/YuvrajBiswal3" className="inline-flex items-center px-4 py-1 border rounded hover:bg-gray-50 text-sm gap-2">
+        <a href="https://x.com/yuvicodes" className="inline-flex items-center px-4 py-1 border rounded hover:bg-gray-50 text-sm gap-2">
           <Twitter size={16} />
           Twitter
         </a>
