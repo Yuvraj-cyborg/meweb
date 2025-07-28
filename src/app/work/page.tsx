@@ -1,7 +1,7 @@
 import React from 'react';
 import Link from 'next/link';
 import Image from 'next/image';
-import { FaGlobe, FaDatabase, FaGamepad, FaGraduationCap, FaYoutube, FaSearch, FaCog } from 'react-icons/fa';
+import { FaGlobe, FaDatabase, FaGamepad, FaGraduationCap, FaYoutube, FaSearch } from 'react-icons/fa';
 import { GiDragonHead } from 'react-icons/gi';
 import { MdHowToVote } from 'react-icons/md';
 
@@ -21,6 +21,7 @@ const projects: Project[] = [
     repoUrl: "https://github.com/Yuvraj-cyborg/deduck",
     description: "A fast, modular CLI tool to scan directories and detect duplicate files using file hashing.",
     logo: <FaSearch className="text-cyan-600" />,
+    image: "/projects/deduck.png",
     details: [
       "Supports multiple hashing algorithms: XxHash, Blake3, and Sha256 for different scan modes",
       "Filter files by extension and size with recursive directory scanning",
@@ -34,6 +35,7 @@ const projects: Project[] = [
     repoUrl: "https://github.com/Yuvraj-cyborg/verdyce",
     description: "A time-decay threshold consensus engine for decentralized voting and governance systems.",
     logo: <MdHowToVote className="text-emerald-600" />,
+    image: "/projects/verdyce.png",
     details: [
       "Implements time-decay voting where vote weights decrease over time to encourage early participation",
       "Dynamic approval thresholds that increase over time for higher scrutiny",

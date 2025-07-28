@@ -22,20 +22,20 @@ export default function Home() {
   return (
     <>
       <h1>Yuvraj Biswal</h1>
-      <br/>
+      <br />
       <p>
         I&apos;m a Computer Science student and web developer with hands-on experience in full-stack development,
         cloud infrastructure, and emerging tech like generative AI and Web3. I enjoy solving complex problems and building
         scalable, user-focused applications.
       </p>
-      <br/>
+      <br />
       <p>
         This website is to showcase my work, thoughts and share my reasearch.
       </p>
 
       <div className="flex flex-wrap gap-4 my-6">
         <a href="https://github.com/Yuvraj-cyborg" className="inline-flex items-center px-4 py-1 border rounded hover:bg-gray-50 text-sm gap-2">
-          <Github size={16}/>
+          <Github size={16} />
           Code
         </a>
         <a href="/resume-new.pdf" className="inline-flex items-center px-4 py-1 border rounded hover:bg-gray-50 text-sm gap-2">
@@ -54,7 +54,7 @@ export default function Home() {
           onClick={handleCopy}
           className="inline-flex items-center px-4 py-1 border rounded hover:bg-gray-50 text-sm gap-2"
         >
-          <SiSolana size={16}/>
+          <SiSolana size={16} />
           {copied ? "Copied!" : "Solana"}
         </button>
         <button
