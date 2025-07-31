@@ -5,8 +5,8 @@ export default function About() {
         
         <div className="space-y-4 text-sm leading-6">
           <p>
-            I&apos;m a second-year Computer Science student at Silicon University with hands-on experience in full-stack web development. 
-            I love building scalable applications using modern technologies like NextJs, Go, Rust and PostgresSQL.
+            I&apos;m a second-year Computer Science student who loves to code and study physics. 
+            I love building scalable applications using modern technologies like Go, Rust and Bun sometimes.
           </p>
           
           <p>
