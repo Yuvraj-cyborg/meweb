@@ -31,6 +31,14 @@ export default function About() {
             </p>
           </div>
 
+          <div className="mb-6">
+            <h3 className="font-medium">Software Developer at <a href="https://dognosis.tech" target="_blank" rel="noopener noreferrer" className="text-green-700">Dognosis</a></h3>
+            <p className="text-gray-500 text-xs">Jul 2025 - Present</p>
+            <p className="mt-1">
+              Working on the api pipeline for the Dognosis portal. Working on a Rust backend currently and python sometimes for our cancer report analysis model.
+            </p>
+          </div>
+
           <h2 className="text-xl mt-8 mb-4">Feedback</h2>
           <p>
             Have feedback on my portfolio? I&apos;d love to hear it!
