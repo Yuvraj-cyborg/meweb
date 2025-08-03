@@ -1,5 +1,6 @@
 "use client"
 
+import XIcon from "@/components/icons/XIcon"
 import { Github, Twitter, NotebookText, Coffee } from "lucide-react"
 import Link from 'next/link'
 import { useState } from "react"
@@ -44,8 +45,8 @@ export default function Home() {
           Buymecoffee
         </a>
         <a href="https://x.com/yuvicodes" className="inline-flex items-center px-4 py-1 border rounded hover:bg-gray-50 text-sm gap-2">
-          <Twitter size={16} />
-          Twitter
+          <XIcon size={16} />
+
         </a>
         <button
           onClick={handleCopy}
