@@ -1,7 +1,7 @@
 "use client"
 
 import XIcon from "@/components/icons/XIcon"
-import { Github, Twitter, NotebookText, Coffee } from "lucide-react"
+import { Github, NotebookText, Coffee } from "lucide-react"
 import Link from 'next/link'
 import { useState } from "react"
 import { SiSolana } from "react-icons/si"
