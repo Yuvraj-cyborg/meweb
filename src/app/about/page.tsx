@@ -1,55 +1,66 @@
 export default function About() {
-    return (
-      <main>
-        <h1 className="text-3xl mb-6">About</h1>
-        
-        <div className="space-y-4 text-sm leading-6">
-          <p>
-            I&apos;m a second-year Computer Science student who loves to code and study physics. 
-            I love building scalable applications using modern technologies like Go, Rust and Bun sometimes.
-          </p>
-          
-          <p>
-            Beyond coding, I enjoy learning and researching on Astrophysics. 
-          </p>
-          
-          <h2 className="text-xl mt-8 mb-4">Experience</h2>
-          
-          <div className="mb-6">
-            <h3 className="font-medium">Freelance Web Developer</h3>
-            <p className="text-gray-500 text-xs">Dec 2023 - Present</p>
-            <p className="mt-1">
-              Developed scalable business platforms for clients across industries. Built a full-stack voting platform handling 50K+ users/hour.
-            </p>
-          </div>
-          
-          <div className="mb-6">
-            <h3 className="font-medium">Web Dev Instructor at Shabzak Tech</h3>
-            <p className="text-gray-500 text-xs">Jul 2024 - Oct 2024</p>
-            <p className="mt-1">
-              Designed and delivered Vue.js courses from beginner to advanced levels with project-based curriculum.
-            </p>
-          </div>
+  return (
+    <main>
+      <h1 className="text-3xl mb-6">About</h1>
 
-          <div className="mb-6">
-            <h3 className="font-medium">Software Developer at <a href="https://dognosis.tech" target="_blank" rel="noopener noreferrer" className="text-green-700">Dognosis</a></h3>
-            <p className="text-gray-500 text-xs">Jul 2025 - Present</p>
-            <p className="mt-1">
-              Working on the api pipeline for the Dognosis portal. Working on a Rust backend currently and python sometimes for our cancer report analysis model.
-            </p>
-          </div>
+      <div className="space-y-4 text-sm leading-6">
+        <p>
+          I&apos;m a third-year Computer Science student who loves to code and
+          study physics. I love building scalable applications using modern
+          technologies like Go, Rust and Bun sometimes.
+        </p>
 
-          <h2 className="text-xl mt-8 mb-4">Feedback</h2>
-          <p>
-            Have feedback on my portfolio? I&apos;d love to hear it!
+        <p>Beyond coding, I enjoy learning and researching on Astrophysics.</p>
+
+        <h2 className="text-xl mt-8 mb-4">Experience</h2>
+
+        <div className="mb-6">
+          <h3 className="font-medium">Freelance Web Developer</h3>
+          <p className="text-gray-500 text-xs">Dec 2023 - Present</p>
+          <p className="mt-1">
+            Developed scalable business platforms for clients across industries.
+            Built a full-stack voting platform handling 50K+ users/hour.
           </p>
-          <a 
-            href="mailto:yuvrajbiswalofficial@gmail.com?subject=Portfolio Feedback"
-            className="inline-block px-4 py-2 mb-4 text-sm font-medium border border-black rounded-lg hover:bg-black hover:text-white transition-colors duration-300"
-          >
-            Send Feedback
-          </a>
         </div>
-      </main>
-    )
-  }
+
+        <div className="mb-6">
+          <h3 className="font-medium">Web Dev Instructor at Shabzak Tech</h3>
+          <p className="text-gray-500 text-xs">Jul 2024 - Oct 2024</p>
+          <p className="mt-1">
+            Designed and delivered Vue.js courses from beginner to advanced
+            levels with project-based curriculum.
+          </p>
+        </div>
+
+        <div className="mb-6">
+          <h3 className="font-medium">
+            Software Developer at{" "}
+            <a
+              href="https://dognosis.tech"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="text-green-700"
+            >
+              Dognosis
+            </a>
+          </h3>
+          <p className="text-gray-500 text-xs">Jul 2025 - Present</p>
+          <p className="mt-1">
+            Working on the api pipeline for the Dognosis portal. Working on a
+            Rust backend currently and python sometimes for our cancer report
+            analysis model.
+          </p>
+        </div>
+
+        <h2 className="text-xl mt-8 mb-4">Feedback</h2>
+        <p>Have feedback on my portfolio? I&apos;d love to hear it!</p>
+        <a
+          href="mailto:yuvrajbiswalofficial@gmail.com?subject=Portfolio Feedback"
+          className="inline-block px-4 py-2 mb-4 text-sm font-medium border border-black rounded-lg hover:bg-black hover:text-white transition-colors duration-300"
+        >
+          Send Feedback
+        </a>
+      </div>
+    </main>
+  );
+}
