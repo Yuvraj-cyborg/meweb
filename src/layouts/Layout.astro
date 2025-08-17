@@ -1,6 +1,7 @@
 ---
 import '../styles/global.css';
 import Header from '../components/Header.astro';
+import { ViewTransitions } from 'astro:transitions';
 
 export interface Props {
   title: string;
@@ -21,16 +22,34 @@ const { title, description = "Computer Science Student and Web Developer", maxWi
     <link rel="icon" type="image/png" href="/favicon.png" />
     <meta name="generator" content={Astro.generator} />
     <title>{title}</title>
+    <ViewTransitions />
 
     <script is:inline>
-      // Force dark mode. This is the simplest and most reliable solution.
-      document.documentElement.setAttribute('data-theme', 'dark');
-      document.documentElement.classList.add('dark');
+      /**
+       * This is the single, unbreakable script that forces dark mode.
+       * It runs on initial load and on every client-side navigation.
+       * This prevents all flickering and state-loss issues.
+       */
+      function applyDarkMode() {
+        const root = document.documentElement;
+        root.setAttribute('data-theme', 'dark');
+        root.classList.add('dark');
+      }
+
+      // 1. Run immediately on initial page load to prevent any flicker.
+      applyDarkMode();
+
+      // 2. Run again after every client-side navigation to ensure the theme persists.
+      document.addEventListener('astro:page-load', applyDarkMode);
     </script>
   </head>
   <body class="min-h-screen bg-[var(--bg-primary)]">
-    <!-- Floating centered navbar wrapper -->
-    <div class="fixed top-8 left-1/2 -translate-x-1/2 z-50">
+    <!--
+      The `transition:name` attribute is the key to fixing the header flicker.
+      It tells Astro's View Transitions to treat this element as a single,
+      persistent component across all pages.
+    -->
+    <div class="fixed top-8 left-1/2 -translate-x-1/2 z-50" transition:name="header">
       <div class="min-w-fit max-w-xl h-11 rounded-lg bg-[var(--bg-secondary)]/95 border border-[var(--border-color)]/50 shadow-md backdrop-blur px-2 md:px-4 flex items-center">
         <Header />
       </div>
