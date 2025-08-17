@@ -92,3 +92,20 @@
   background-color: transparent;
   color: inherit;
 }
+
+/* CSS-driven theme icon visibility */
+/* In dark mode (default), show the sun icon to switch to light */
+[data-theme="dark"] .theme-icon.sun {
+  display: block;
+}
+[data-theme="dark"] .theme-icon.moon {
+  display: none;
+}
+
+/* In light mode, show the moon icon to switch to dark */
+[data-theme="light"] .theme-icon.sun {
+  display: none;
+}
+[data-theme="light"] .theme-icon.moon {
+  display: block;
+}
