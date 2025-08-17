@@ -23,24 +23,61 @@ const { title, description = "Computer Science Student and Web Developer", maxWi
     <title>{title}</title>
 
     <script is:inline>
-      // This IIFE (Immediately Invoked Function Expression) is the anti-flicker script.
-      // It runs before the rest of the page is parsed, ensuring the correct theme
-      // is applied from the very beginning.
-      (function() {
-        // The 'usehooks-ts' library stores its value as a boolean string.
-        // We check for 'false' to identify light mode.
-        // All other cases (value is 'true' or the key doesn't exist) default to dark mode.
-        const isLight = localStorage.getItem('usehooks-ts-dark-mode') === 'false';
-        const theme = isLight ? 'light' : 'dark';
+      // This is the single, unbreakable script that handles the theme.
+      // It runs before the page is rendered to prevent flickering.
+      const THEME_STORAGE_KEY = 'theme';
 
+      /**
+       * This is the single source of truth for applying the theme. It updates
+       * the DOM by setting the 'data-theme' attribute and toggling the '.dark'
+       * class. It also updates the button icons to reflect the current state.
+       */
+      function applyTheme(theme) {
         const root = document.documentElement;
         root.setAttribute('data-theme', theme);
-        if (theme === 'dark') {
-          root.classList.add('dark');
-        }
-      })();
-    </script>
+        root.classList.toggle('dark', theme === 'dark');
 
+        const sunIcon = document.getElementById('theme-icon-sun');
+        const moonIcon = document.getElementById('theme-icon-moon');
+        if (sunIcon && moonIcon) {
+          // In dark mode, we show the moon icon (which toggles to light).
+          // In light mode, we show the sun icon (which toggles to dark).
+          if (theme === 'dark') {
+            sunIcon.style.display = 'block';
+            moonIcon.style.display = 'none';
+          } else {
+            sunIcon.style.display = 'none';
+            moonIcon.style.display = 'block';
+          }
+        }
+      }
+
+      /**
+       * This function handles the theme toggle logic. It reads the current
+       * theme from localStorage, calculates the new theme, saves it, and
+       * then applies it to the DOM.
+       */
+      function toggleTheme() {
+        const currentTheme = localStorage.getItem(THEME_STORAGE_KEY) || 'dark';
+        const newTheme = currentTheme === 'dark' ? 'light' : 'dark';
+        localStorage.setItem(THEME_STORAGE_KEY, newTheme);
+        applyTheme(newTheme);
+      }
+
+      // 1. Set the initial theme immediately on page load. This is the
+      //    most important part of the anti-flicker solution.
+      const initialTheme = localStorage.getItem(THEME_STORAGE_KEY) || 'dark';
+      applyTheme(initialTheme);
+
+      // 2. Add the click event listener after the DOM has loaded. This is the
+      //    classic, reliable way to handle user interaction on a static site.
+      document.addEventListener('DOMContentLoaded', () => {
+        const button = document.getElementById('theme-toggle-button');
+        if (button) {
+          button.addEventListener('click', toggleTheme);
+        }
+      });
+    </script>
   </head>
   <body class="min-h-screen bg-[var(--bg-primary)]">
     <!-- Floating centered navbar wrapper -->
