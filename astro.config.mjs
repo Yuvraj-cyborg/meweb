@@ -5,7 +5,7 @@ import vercel from "@astrojs/vercel/serverless";
 
 export default defineConfig({
   output: "static",
-  site: "https://yuvraj-portfolio.vercel.app",
+  site: "https://yuvraj-dev.me",
   integrations: [react()],
   adapter: vercel(),
   vite: {

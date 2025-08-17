@@ -23,51 +23,24 @@ const { title, description = "Computer Science Student and Web Developer", maxWi
     <title>{title}</title>
 
     <script is:inline>
-      const THEME_STORAGE_KEY = 'theme';
+      // This IIFE (Immediately Invoked Function Expression) is the anti-flicker script.
+      // It runs before the rest of the page is parsed, ensuring the correct theme
+      // is applied from the very beginning.
+      (function() {
+        // The 'usehooks-ts' library stores its value as a boolean string.
+        // We check for 'false' to identify light mode.
+        // All other cases (value is 'true' or the key doesn't exist) default to dark mode.
+        const isLight = localStorage.getItem('usehooks-ts-dark-mode') === 'false';
+        const theme = isLight ? 'light' : 'dark';
 
-      /**
-       * This function is the single source of truth for applying the theme.
-       * It updates the DOM and the button icons.
-       */
-      function applyTheme(theme) {
-        // Apply theme to the <html> element
         const root = document.documentElement;
         root.setAttribute('data-theme', theme);
-        root.classList.toggle('dark', theme === 'dark');
-
-        // Update the button icons
-        const sunIcon = document.getElementById('theme-icon-sun');
-        const moonIcon = document.getElementById('theme-icon-moon');
-        if (sunIcon && moonIcon) {
-          sunIcon.style.display = theme === 'dark' ? 'none' : 'block';
-          moonIcon.style.display = theme === 'dark' ? 'block' : 'none';
+        if (theme === 'dark') {
+          root.classList.add('dark');
         }
-      }
-
-      /**
-       * This function handles the theme toggle logic.
-       */
-      function toggleTheme() {
-        const currentTheme = localStorage.getItem(THEME_STORAGE_KEY) || 'dark';
-        const newTheme = currentTheme === 'dark' ? 'light' : 'dark';
-        localStorage.setItem(THEME_STORAGE_KEY, newTheme);
-        applyTheme(newTheme);
-      }
-
-      // 1. Set the initial theme immediately on page load to prevent flickering.
-      // This is the most important part of the fix.
-      const initialTheme = localStorage.getItem(THEME_STORAGE_KEY) || 'dark';
-      applyTheme(initialTheme);
-
-      // 2. Add the click event listener after the DOM has loaded.
-      // This is the classic, reliable way to handle user interaction on a static site.
-      document.addEventListener('DOMContentLoaded', () => {
-        const button = document.getElementById('theme-toggle-button');
-        if (button) {
-          button.addEventListener('click', toggleTheme);
-        }
-      });
+      })();
     </script>
+
   </head>
   <body class="min-h-screen bg-[var(--bg-primary)]">
     <!-- Floating centered navbar wrapper -->
