@@ -23,44 +23,9 @@ const { title, description = "Computer Science Student and Web Developer", maxWi
     <title>{title}</title>
 
     <script is:inline>
-      const THEME_STORAGE_KEY = 'theme';
-
-      /**
-       * This is the single source of truth for applying the theme.
-       * It updates the DOM by setting the 'data-theme' attribute and
-       * toggling the '.dark' class.
-       */
-      function applyTheme(theme) {
-        const root = document.documentElement;
-        root.setAttribute('data-theme', theme);
-        root.classList.toggle('dark', theme === 'dark');
-      }
-
-      /**
-       * This function handles the theme toggle logic. It reads the current
-       * theme from localStorage, calculates the new theme, saves it, and
-       * then applies it to the DOM.
-       */
-      function toggleTheme() {
-        const currentTheme = localStorage.getItem(THEME_STORAGE_KEY) || 'dark';
-        const newTheme = currentTheme === 'dark' ? 'light' : 'dark';
-        localStorage.setItem(THEME_STORAGE_KEY, newTheme);
-        applyTheme(newTheme);
-      }
-
-      // 1. Set the initial theme immediately on page load. This is the
-      //    most important part of the anti-flicker solution.
-      const initialTheme = localStorage.getItem(THEME_STORAGE_KEY) || 'dark';
-      applyTheme(initialTheme);
-
-      // 2. Add the click event listener after the DOM has loaded. This is the
-      //    classic, reliable way to handle user interaction on a static site.
-      document.addEventListener('DOMContentLoaded', () => {
-        const button = document.getElementById('theme-toggle-button');
-        if (button) {
-          button.addEventListener('click', toggleTheme);
-        }
-      });
+      // Force dark mode. This is the simplest and most reliable solution.
+      document.documentElement.setAttribute('data-theme', 'dark');
+      document.documentElement.classList.add('dark');
     </script>
   </head>
   <body class="min-h-screen bg-[var(--bg-primary)]">
