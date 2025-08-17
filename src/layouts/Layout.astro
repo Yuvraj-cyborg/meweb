@@ -1,7 +1,7 @@
 ---
 import '../styles/global.css';
 import Header from '../components/Header.astro';
-import { ViewTransitions } from 'astro:transitions';
+import { ClientRouter } from 'astro:transitions';
 
 export interface Props {
   title: string;
@@ -15,19 +15,7 @@ const { title, description = "Computer Science Student and Web Developer", maxWi
 <!doctype html>
 <html lang="en">
   <head>
-    <script data-astro-transition-persist>
-      // IIFE to set theme immediately, prevent FOUC, and default to dark mode.
-      (function() {
-        const theme = localStorage.getItem('theme') || 'dark';
-        const html = document.documentElement;
-        html.setAttribute('data-theme', theme);
-        if (theme === 'dark') {
-          html.classList.add('dark');
-        } else {
-          html.classList.remove('dark');
-        }
-      })();
-    </script>
+
     <meta charset="UTF-8" />
     <meta name="description" content={description} />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
@@ -41,7 +29,7 @@ const { title, description = "Computer Science Student and Web Developer", maxWi
     <link rel="icon" type="image/png" href="/favicon.png" />
     <meta name="generator" content={Astro.generator} />
     <title>{title}</title>
-    <ViewTransitions />
+    <ClientRouter />
   </head>
   <body class="min-h-screen bg-[var(--bg-primary)]">
     <!-- Floating centered navbar wrapper -->
