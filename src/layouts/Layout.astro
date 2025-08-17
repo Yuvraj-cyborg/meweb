@@ -1,0 +1,83 @@
+---
+import '../styles/global.css';
+import Header from '../components/Header.astro';
+
+export interface Props {
+  title: string;
+  description?: string;
+  maxWidth?: string;
+}
+
+const { title, description = "Computer Science Student and Web Developer", maxWidth = "max-w-3xl" } = Astro.props;
+---
+
+<!doctype html>
+<html lang="en">
+  <head>
+    <script>
+      // Apply theme IMMEDIATELY to prevent flash
+      (function() {
+        try {
+          var saved = localStorage.getItem('theme');
+          var systemDark = window.matchMedia && window.matchMedia('(prefers-color-scheme: dark)').matches;
+          var theme = saved || (systemDark ? 'dark' : 'light');
+
+          var html = document.documentElement;
+          html.setAttribute('data-theme', theme);
+          html.classList.toggle('dark', theme === 'dark');
+
+          // Set inline styles immediately to override any defaults
+          html.style.backgroundColor = theme === 'dark' ? 'hsl(0, 0%, 17%)' : 'hsl(0, 0%, 100%)';
+          html.style.color = theme === 'dark' ? 'hsl(0, 0%, 85%)' : 'hsl(0, 0%, 20%)';
+
+          // Also set body styles preemptively
+          document.addEventListener('DOMContentLoaded', function() {
+            document.body.style.backgroundColor = theme === 'dark' ? 'hsl(0, 0%, 17%)' : 'hsl(0, 0%, 100%)';
+            document.body.style.color = theme === 'dark' ? 'hsl(0, 0%, 85%)' : 'hsl(0, 0%, 20%)';
+          });
+        } catch (_) {
+          // Fallback
+          var html = document.documentElement;
+          if (window.matchMedia && window.matchMedia('(prefers-color-scheme: dark)').matches) {
+            html.setAttribute('data-theme', 'dark');
+            html.classList.add('dark');
+            html.style.backgroundColor = 'hsl(0, 0%, 17%)';
+            html.style.color = 'hsl(0, 0%, 85%)';
+          } else {
+            html.setAttribute('data-theme', 'light');
+            html.style.backgroundColor = 'hsl(0, 0%, 100%)';
+            html.style.color = 'hsl(0, 0%, 20%)';
+          }
+        }
+      })();
+    </script>
+    <meta charset="UTF-8" />
+    <meta name="description" content={description} />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="color-scheme" content="dark light" />
+    <style>
+      /* Prevent flash by setting initial colors - matching mxnish-me */
+      html { background-color: hsl(0, 0%, 100%); color: hsl(0, 0%, 20%); }
+      html.dark { background-color: hsl(0, 0%, 17%); color: hsl(0, 0%, 85%); }
+      body { background-color: inherit; color: inherit; }
+    </style>
+    <link rel="icon" type="image/png" href="/favicon.png" />
+    <meta name="generator" content={Astro.generator} />
+    <title>{title}</title>
+  </head>
+  <body class="min-h-screen bg-[var(--bg-primary)]">
+    <!-- Floating centered navbar wrapper -->
+    <div class="fixed top-8 left-1/2 -translate-x-1/2 z-50">
+      <div class="min-w-fit max-w-xl h-11 rounded-lg bg-[var(--bg-secondary)]/95 border border-[var(--border-color)]/50 shadow-md backdrop-blur px-2 md:px-4 flex items-center">
+        <Header />
+      </div>
+    </div>
+
+    <!-- Main Content -->
+    <main class="flex flex-col min-h-full px-4 pt-32 pb-6">
+      <div class:list={[maxWidth, "w-full", "mx-auto"]}>
+        <slot />
+      </div>
+    </main>
+  </body>
+</html>

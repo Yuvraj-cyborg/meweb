@@ -1,0 +1,37 @@
+---
+import Layout from '../layouts/Layout.astro';
+import ProjectCard from '../components/ProjectCard.astro';
+import { projectsData } from '../data/projects';
+---
+
+<Layout title="Work - Yuvraj Biswal" maxWidth="max-w-4xl">
+  <div class="space-y-12">
+    <div>
+      <h1 class="text-3xl font-bold mb-4 text-[var(--text-primary)]">Builds</h1>
+      <p class="text-[var(--text-secondary)] leading-relaxed">
+        I'm trying to find a balance between building stuff and engineering.
+      </p>
+    </div>
+
+    {Object.keys(projectsData).map((category) => (
+      <section class="space-y-6">
+        <h2 class="text-xl font-semibold text-[var(--text-primary)]">
+          {category}
+        </h2>
+
+        <div class="grid grid-cols-1 sm:grid-cols-2 gap-4">
+          {projectsData[category as keyof typeof projectsData].map((project) => (
+            <ProjectCard
+              name={project.name}
+              desc={project.desc}
+              link={project.link}
+              repo={project.repo}
+              icon={project.icon}
+              tech={project.tech}
+            />
+          ))}
+        </div>
+      </section>
+    ))}
+  </div>
+</Layout>

@@ -1,0 +1,55 @@
+---
+import ProjectIcon from './icons/ProjectIcon.tsx';
+import TechIcon from './icons/TechIcon.tsx';
+import { SiGithub } from 'react-icons/si';
+
+export interface Props {
+  name: string;
+  desc: string;
+  link?: string;
+  repo?: string;
+  icon: string;
+  tech: Array<{
+    name: string;
+  }>;
+}
+
+const { name, desc, link, repo, icon, tech } = Astro.props;
+---
+
+<div class="flex h-full flex-col justify-between gap-4 border border-[var(--border-color)] bg-transparent p-6 transition-colors duration-200 hover:bg-[var(--bg-secondary)]/50">
+  <div>
+    <div class="flex items-start justify-between">
+      <div class="flex-grow">
+        <div class="mb-2 flex items-center gap-3">
+          <h3 class="text-lg font-medium text-[var(--text-primary)]">{name}</h3>
+          <div class="flex items-center gap-2">
+            {tech.map((item) => (
+              <div title={item.name}>
+                <TechIcon tech={item.name} className="h-4 w-4" client:visible />
+              </div>
+            ))}
+          </div>
+        </div>
+        <p class="text-sm leading-relaxed text-[var(--text-secondary)]">
+          {desc}
+        </p>
+      </div>
+      <div class="flex-shrink-0">
+        <ProjectIcon icon={icon} className="h-10 w-10 text-[var(--text-secondary)]" client:visible />
+      </div>
+    </div>
+  </div>
+  <div class="mt-auto flex items-center gap-4">
+    {link &&
+      <a href={link} target="_blank" rel="noopener noreferrer" class="text-sm font-medium text-[var(--accent-color)] hover:underline">
+        Live
+      </a>
+    }
+    {repo &&
+      <a href={`https://github.com/${repo}`} target="_blank" rel="noopener noreferrer" class="text-[var(--text-secondary)] transition-colors hover:text-[var(--text-primary)]">
+        <SiGithub className="h-5 w-5" client:visible />
+      </a>
+    }
+  </div>
+</div>
