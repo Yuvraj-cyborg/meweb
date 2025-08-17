@@ -44,14 +44,9 @@ const currentPath = Astro.url.pathname;
     const themeToggle = document.getElementById('theme-toggle');
     if (!themeToggle) return;
 
-    let currentTheme = 'light';
-
-    // Get initial theme
-    const savedTheme = localStorage.getItem('theme');
-    const systemTheme = window.matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light';
-    currentTheme = savedTheme || systemTheme;
-
-    document.documentElement.setAttribute('data-theme', currentTheme);
+    // The initial theme is set by the script in Layout.astro.
+    // This script simply reads the current theme and handles the toggle.
+    let currentTheme = document.documentElement.getAttribute('data-theme') || 'dark';
 
     // Create toggle button
     const button = document.createElement('button');
@@ -71,17 +66,6 @@ const currentPath = Astro.url.pathname;
       localStorage.setItem('theme', currentTheme);
       document.documentElement.setAttribute('data-theme', currentTheme);
       document.documentElement.classList.toggle('dark', currentTheme === 'dark');
-
-      // Update inline styles to prevent partial theme application
-      const isDark = currentTheme === 'dark';
-      const bgColor = isDark ? 'hsl(0, 0%, 17%)' : 'hsl(0, 0%, 100%)';
-      const textColor = isDark ? 'hsl(0, 0%, 85%)' : 'hsl(0, 0%, 20%)';
-
-      document.documentElement.style.backgroundColor = bgColor;
-      document.documentElement.style.color = textColor;
-      document.body.style.backgroundColor = bgColor;
-      document.body.style.color = textColor;
-
       updateButton();
     });
 

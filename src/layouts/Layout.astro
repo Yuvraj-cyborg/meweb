@@ -16,39 +16,15 @@ const { title, description = "Computer Science Student and Web Developer", maxWi
 <html lang="en">
   <head>
     <script data-astro-transition-persist>
-      // Apply theme IMMEDIATELY to prevent flash
+      // IIFE to set theme immediately, prevent FOUC, and default to dark mode.
       (function() {
-        try {
-          var saved = localStorage.getItem('theme');
-          var systemDark = window.matchMedia && window.matchMedia('(prefers-color-scheme: dark)').matches;
-          var theme = saved || (systemDark ? 'dark' : 'light');
-
-          var html = document.documentElement;
-          html.setAttribute('data-theme', theme);
-          html.classList.toggle('dark', theme === 'dark');
-
-          // Set inline styles immediately to override any defaults
-          html.style.backgroundColor = theme === 'dark' ? 'hsl(0, 0%, 17%)' : 'hsl(0, 0%, 100%)';
-          html.style.color = theme === 'dark' ? 'hsl(0, 0%, 85%)' : 'hsl(0, 0%, 20%)';
-
-          // Also set body styles preemptively
-          document.addEventListener('DOMContentLoaded', function() {
-            document.body.style.backgroundColor = theme === 'dark' ? 'hsl(0, 0%, 17%)' : 'hsl(0, 0%, 100%)';
-            document.body.style.color = theme === 'dark' ? 'hsl(0, 0%, 85%)' : 'hsl(0, 0%, 20%)';
-          });
-        } catch (_) {
-          // Fallback
-          var html = document.documentElement;
-          if (window.matchMedia && window.matchMedia('(prefers-color-scheme: dark)').matches) {
-            html.setAttribute('data-theme', 'dark');
-            html.classList.add('dark');
-            html.style.backgroundColor = 'hsl(0, 0%, 17%)';
-            html.style.color = 'hsl(0, 0%, 85%)';
-          } else {
-            html.setAttribute('data-theme', 'light');
-            html.style.backgroundColor = 'hsl(0, 0%, 100%)';
-            html.style.color = 'hsl(0, 0%, 20%)';
-          }
+        const theme = localStorage.getItem('theme') || 'dark';
+        const html = document.documentElement;
+        html.setAttribute('data-theme', theme);
+        if (theme === 'dark') {
+          html.classList.add('dark');
+        } else {
+          html.classList.remove('dark');
         }
       })();
     </script>
