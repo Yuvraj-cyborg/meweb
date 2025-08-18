@@ -96,6 +96,13 @@
 }
 
 /* Header container stable sizing to avoid blink/growth */
+
+/* Disable fade animation for header during Astro View Transitions */
+::view-transition-old(header),
+::view-transition-new(header) {
+  animation: none !important;
+  opacity: 1 !important;
+}
 .site-header, header, .min-w-fit {
   /* fix height so active state doesn't change layout */
   height: 2.75rem;
