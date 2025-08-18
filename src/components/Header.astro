@@ -23,11 +23,12 @@ const currentPath = Astro.url.pathname;
       return (
         <a
           href={item.href}
-          class={`px-3 py-1.5 rounded-md transition-all duration-150 ${
+          class={`px-3 py-1.5 rounded-md transition-colors duration-150 ease-in-out ${
             isActive
               ? 'bg-[var(--bg-primary)] text-[var(--text-primary)] shadow-sm'
               : 'text-[var(--text-secondary)] hover:bg-[var(--bg-primary)]/50 hover:text-[var(--text-primary)]'
           }`}
+          style="line-height:1; height:2rem; display:inline-flex; align-items:center; justify-content:center;"
         >
           {item.label}
         </a>

@@ -64,7 +64,9 @@
     background-color: var(--bg-primary);
     color: var(--text-primary);
     /* Remove transition to prevent flash during theme changes */
-    line-height: 1.6;
+  line-height: 1.6;
+  /* Prevent slow transitions on background/color which cause flicker */
+  transition: none !important;
   }
 }
 
@@ -91,4 +93,16 @@
 .prose pre code {
   background-color: transparent;
   color: inherit;
+}
+
+/* Header container stable sizing to avoid blink/growth */
+.site-header, header, .min-w-fit {
+  /* fix height so active state doesn't change layout */
+  height: 2.75rem;
+  min-height: 2.75rem;
+}
+
+/* Override any global transition-all class in header children to only animate colors */
+.site-header *[class*="transition-all"], header *[class*="transition-all"] {
+  transition-property: color, background-color, border-color, box-shadow !important;
 }
