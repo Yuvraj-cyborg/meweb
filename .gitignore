@@ -23,6 +23,3 @@ pnpm-debug.log*
 # jetbrains setting folder
 .idea/
 
-See this , its my personal portfolio but it has some flickering issues also this website was supposed to be static but when i change ttab it refereshes each time 
-can u fix that???
-also i need it to be smooth and not reload and fix the flickering issue of the header and it grrows or shrinks and blinks , fix them all
