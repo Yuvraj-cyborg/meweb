@@ -26,7 +26,7 @@ const { name, desc, link, repo, icon, tech } = Astro.props;
           <div class="flex items-center gap-2">
             {tech.map((item) => (
               <div title={item.name}>
-                <TechIcon tech={item.name} className="h-4 w-4" client:visible />
+                <TechIcon tech={item.name} className="h-5 w-5" client:visible />
               </div>
             ))}
           </div>

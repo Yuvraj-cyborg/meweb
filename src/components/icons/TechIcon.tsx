@@ -10,6 +10,7 @@ import {
   SiGo,
   SiBun,
   SiJavascript,
+  SiZig,
 } from "react-icons/si";
 import { FaJava } from "react-icons/fa";
 import { TbCode } from "react-icons/tb";
@@ -30,6 +31,7 @@ const iconMap: { [key: string]: IconType } = {
   java: FaJava,
   bun: SiBun,
   javascript: SiJavascript,
+  zig: SiZig,
 };
 
 const colorMap: { [key: string]: string } = {
@@ -43,6 +45,7 @@ const colorMap: { [key: string]: string } = {
   java: "#f89820",
   bun: "#FBF0DF",
   javascript: "#FFCE1B",
+  zig: "#FFCE1B",
 };
 
 const TechIcon: React.FC<TechIconProps> = ({ tech, className }) => {

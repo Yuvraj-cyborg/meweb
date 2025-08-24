@@ -1,5 +1,5 @@
-import React from 'react';
-import type { IconType } from 'react-icons';
+import React from "react";
+import type { IconType } from "react-icons";
 import {
   FaVoteYea,
   FaDragon,
@@ -11,9 +11,10 @@ import {
   FaGamepad,
   FaCube,
   FaRocket,
-} from 'react-icons/fa';
-import { TbCode } from 'react-icons/tb';
-
+} from "react-icons/fa";
+import { TbFileZip } from "react-icons/tb";
+import { FaRegClipboard } from "react-icons/fa6";
+import { FiGitBranch } from "react-icons/fi";
 interface ProjectIconProps {
   icon: string;
   className?: string;
@@ -30,11 +31,14 @@ const iconMap: { [key: string]: IconType } = {
   gamepad: FaGamepad,
   cube: FaCube,
   rocket: FaRocket,
+  filezip: TbFileZip,
+  gitbranch: FiGitBranch,
+  clipboard: FaRegClipboard,
 };
 
 const ProjectIcon: React.FC<ProjectIconProps> = ({ icon, className }) => {
   const normalizedIcon = icon.toLowerCase();
-  const IconComponent = iconMap[normalizedIcon] || TbCode;
+  const IconComponent = iconMap[normalizedIcon];
 
   return <IconComponent className={className} />;
 };
