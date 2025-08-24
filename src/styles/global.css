@@ -1,14 +1,13 @@
-@import url("https://cdn.jsdelivr.net/npm/cmu-sans-serif@latest/cmu-sans-serif.css");
+@import url("https://fonts.googleapis.com/css2?family=Varela+Round&display=swap");
 @import "tailwindcss";
 @plugin "@tailwindcss/typography";
 
 @layer base {
   html {
-    font-family: "CMU Sans Serif", -apple-system, BlinkMacSystemFont, "Segoe UI",
-      sans-serif;
+    font-family: "Varela Round", sans-serif;
   }
 
-  /* Light mode styles - matching mxnish-me */
+  /* Light mode styles */
   :root {
     --bg-primary: hsl(0, 0%, 100%); /* --bg: 0 0% 100% */
     --bg-secondary: hsl(0, 0%, 92%); /* --bg-dark: 0 0% 92% */
@@ -21,7 +20,7 @@
     --code-fg: hsl(0, 0%, 85%);
   }
 
-  /* Dark mode styles - matching mxnish-me */
+  /* Dark mode styles */
   @media (prefers-color-scheme: dark) {
     :root {
       --bg-primary: hsl(0, 0%, 17%); /* --bg: 0 0% 17% */
@@ -64,9 +63,9 @@
     background-color: var(--bg-primary);
     color: var(--text-primary);
     /* Remove transition to prevent flash during theme changes */
-  line-height: 1.6;
-  /* Prevent slow transitions on background/color which cause flicker */
-  transition: none !important;
+    line-height: 1.6;
+    /* Prevent slow transitions on background/color which cause flicker */
+    transition: none !important;
   }
 }
 
@@ -103,13 +102,16 @@
   animation: none !important;
   opacity: 1 !important;
 }
-.site-header, header, .min-w-fit {
+.site-header,
+header,
+.min-w-fit {
   /* fix height so active state doesn't change layout */
   height: 2.75rem;
   min-height: 2.75rem;
 }
 
 /* Override any global transition-all class in header children to only animate colors */
-.site-header *[class*="transition-all"], header *[class*="transition-all"] {
+.site-header *[class*="transition-all"],
+header *[class*="transition-all"] {
   transition-property: color, background-color, border-color, box-shadow !important;
 }
