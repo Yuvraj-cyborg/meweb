@@ -1,0 +1,29 @@
+---
+import Layout from '../../layouts/Layout.astro';
+import { getCollection } from 'astro:content';
+
+const entries = (await getCollection('journal')).sort(
+  (a, b) => new Date(b.data.date).getTime() - new Date(a.data.date).getTime()
+);
+---
+
+<Layout title="Journal - Yuvraj Biswal">
+  <div class="space-y-8">
+    <h1 class="text-3xl font-bold text-[var(--text-primary)]">Journal</h1>
+
+    <div class="space-y-6">
+      {entries.map((entry) => (
+        <a href={`/journal/${entry.slug}`} class="block group">
+          <h2 class="text-lg font-medium text-[var(--text-primary)] group-hover:text-[var(--accent-color)] transition-colors">{entry.data.title}</h2>
+          <p class="text-sm text-[var(--text-secondary)]">
+            {new Date(entry.data.date).toLocaleDateString('en-US', {
+              year: 'numeric',
+              month: 'long',
+              day: 'numeric',
+            })}
+          </p>
+        </a>
+      ))}
+    </div>
+  </div>
+</Layout>

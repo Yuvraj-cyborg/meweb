@@ -1,4 +1,5 @@
 ---
+import ObsidianIcon from './icons/ObsidianIcon.tsx';
 const navItems = [
   { href: '/', label: 'Index' },
   { href: '/about', label: 'About' },
@@ -34,6 +35,14 @@ const currentPath = Astro.url.pathname;
         </a>
       );
     })}
+    <a
+      href="/journal"
+      title="Obsidian Journal"
+      class="ml-2 rounded-md p-1.5 text-[var(--text-secondary)] transition-colors duration-150 ease-in-out hover:bg-[var(--bg-primary)]/50 hover:text-[var(--text-primary)]"
+      style="line-height:1; height:2rem; display:inline-flex; align-items:center; justify-content:center;"
+    >
+      <ObsidianIcon className="h-5 w-5" client:visible />
+    </a>
   </nav>
 
 </header>

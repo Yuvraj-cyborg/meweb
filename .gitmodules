@@ -1,0 +1,3 @@
+[submodule "src/content/journal"]
+	path = src/content/journal
+	url = https://github.com/Yuvraj-cyborg/obsidian-journal-vault

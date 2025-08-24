@@ -1,0 +1,50 @@
+name: Update Journal Submodule
+
+# This workflow is triggered when a dispatch event with the type 'update-journal' is sent to this repository.
+# It is also manually triggerable from the GitHub Actions UI.
+on:
+  repository_dispatch:
+    types: [update-journal]
+  workflow_dispatch:
+
+jobs:
+  update:
+    name: Update Journal
+    runs-on: ubuntu-latest
+
+    steps:
+      # Step 1: Check out the main repository's code.
+      # We use a Personal Access Token (PAT) here because the default GITHUB_TOKEN
+      # might not have permissions to push back to the repository or trigger other workflows.
+      # We also instruct it to initialize and update the submodules.
+      - name: Checkout repository
+        uses: actions/checkout@v4
+        with:
+          token: ${{ secrets.PAT }}
+          submodules: 'true'
+
+      # Step 2: Configure Git with a bot user identity.
+      # This is necessary for making a commit.
+      - name: Configure Git
+        run: |
+          git config --global user.name 'github-actions[bot]'
+          git config --global user.email 'github-actions[bot]@users.noreply.github.com'
+
+      # Step 3: Pull the latest changes from the submodule's remote repository.
+      - name: Update submodule
+        run: git submodule update --remote --merge
+
+      # Step 4: Check for changes, and if there are any, commit and push them.
+      # This prevents creating empty commits if the workflow runs but there are no new entries.
+      - name: Commit and push if changed
+        run: |
+          # Stage the submodule pointer if it has changed
+          git add src/content/journal
+
+          # Check if there are any staged changes. If so, commit and push.
+          if ! git diff --staged --quiet; then
+            git commit -m "chore: 🤖 update journal from obsidian vault"
+            git push
+          else
+            echo "No new journal entries to update."
+          fi
