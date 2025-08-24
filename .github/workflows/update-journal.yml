@@ -32,10 +32,12 @@ jobs:
 
       # Step 3: Pull the latest changes from the submodule's remote repository.
       # We use a more complex command here to handle cases where Git histories have diverged.
-      - name: Update submodule
+      - name: Update submodule to latest commit
         run: |
+          # Use git reset --hard to force the submodule to match the remote branch.
+          # This is a robust way to avoid merge conflicts in the workflow.
           git -C src/content/journal fetch origin
-          git -C src/content/journal merge origin/main --allow-unrelated-histories
+          git -C src/content/journal reset --hard origin/main
 
       # Step 4: Check for changes, and if there are any, commit and push them.
       # This prevents creating empty commits if the workflow runs but there are no new entries.
