@@ -14,7 +14,7 @@ const journal = defineCollection({
   type: "content",
   schema: z.object({
     title: z.string(),
-    date: z.string().transform((str) => new Date(str)),
+    date: z.union([z.string(), z.date()]).transform((val) => new Date(val)),
   }),
 });
 
