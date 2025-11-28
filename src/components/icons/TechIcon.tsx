@@ -11,8 +11,12 @@ import {
   SiBun,
   SiJavascript,
   SiZig,
+  SiPython,
+  SiPytorch,
+  SiSolidity,
+  SiWeb3Dotjs,
 } from "react-icons/si";
-import { FaJava } from "react-icons/fa";
+import { FaJava, FaDatabase } from "react-icons/fa";
 import { TbCode } from "react-icons/tb";
 
 interface TechIconProps {
@@ -32,6 +36,11 @@ const iconMap: { [key: string]: IconType } = {
   bun: SiBun,
   javascript: SiJavascript,
   zig: SiZig,
+  python: SiPython,
+  pytorch: SiPytorch,
+  solidity: SiSolidity,
+  web3: SiWeb3Dotjs,
+  rocksdb: FaDatabase,
 };
 
 const colorMap: { [key: string]: string } = {
@@ -46,6 +55,11 @@ const colorMap: { [key: string]: string } = {
   bun: "#FBF0DF",
   javascript: "#FFCE1B",
   zig: "#FFCE1B",
+  python: "#3776AB",
+  pytorch: "#EE4C2C",
+  solidity: "#363636",
+  web3: "#F16822",
+  rocksdb: "#4169E1",
 };
 
 const TechIcon: React.FC<TechIconProps> = ({ tech, className }) => {

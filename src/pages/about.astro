@@ -3,72 +3,68 @@ import Layout from '../layouts/Layout.astro';
 ---
 
 <Layout title="About - Yuvraj Biswal">
-  <div class="space-y-8">
-    <h1 class="text-3xl font-bold text-[var(--text-primary)]">About</h1>
-
-    <div class="space-y-6 text-[var(--text-secondary)] leading-relaxed">
-      <p>
-        I'm a third-year Computer Science student who loves to code and
-        study physics. I love building scalable applications using modern
-        technologies like Go, Rust and Bun sometimes.
-      </p>
-
-      <p>Beyond coding, I enjoy learning and researching on Astrophysics.</p>
-
-      <div class="space-y-6">
-        <h2 class="text-xl font-semibold text-[var(--text-primary)]">Experience</h2>
-
-        <div class="space-y-6">
-          <div>
-            <h3 class="font-medium text-[var(--text-primary)]">Freelance Web Developer</h3>
-            <p class="text-[var(--text-secondary)] text-sm mb-2">Dec 2023 - Present</p>
-            <p class="text-sm">
-              Developed scalable business platforms for clients across industries.
-              Built a full-stack voting platform handling 50K+ users/hour.
-            </p>
-          </div>
-
-          <div>
-            <h3 class="font-medium text-[var(--text-primary)]">Web Dev Instructor at Shabzak Tech</h3>
-            <p class="text-[var(--text-secondary)] text-sm mb-2">Jul 2024 - Oct 2024</p>
-            <p class="text-sm">
-              Designed and delivered Vue.js courses from beginner to advanced
-              levels with project-based curriculum.
-            </p>
-          </div>
-
-          <div>
-            <h3 class="font-medium text-[var(--text-primary)]">
-              Software Developer at
-              <a
-                href="https://dognosis.tech"
-                target="_blank"
-                rel="noopener noreferrer"
-                class="text-[var(--accent-color)] hover:underline"
-              >
-                Dognosis
-              </a>
-            </h3>
-            <p class="text-[var(--text-secondary)] text-sm mb-2">Jul 2025 - Present</p>
-            <p class="text-sm">
-              Working on the api pipeline for the Dognosis portal. Working on a
-              Rust backend currently and python sometimes for our cancer report
-              analysis model.
-            </p>
-          </div>
-        </div>
-      </div>
-
-      <div class="space-y-4">
-        <h2 class="text-xl font-semibold text-[var(--text-primary)]">Feedback</h2>
-        <p>Have feedback on my portfolio? I'd love to hear it!</p>
-        <a
-          href="mailto:yuvrajbiswalofficial@gmail.com?subject=Portfolio Feedback"
-          class="inline-flex items-center px-4 py-2 bg-[var(--bg-secondary)] border border-[var(--border-color)] rounded-lg text-sm font-medium text-[var(--text-primary)] hover:bg-[var(--bg-primary)]"
-        >
-          Send Feedback
-        </a>
-      </div>
+  <div class="space-y-16">
+    <div>
+      <h1 class="text-3xl md:text-4xl font-bold mb-4" style="color: var(--accent);">about</h1>
     </div>
+
+    <div class="space-y-6 text-[var(--text-secondary)] leading-relaxed max-w-3xl">
+      <p>
+        third-year computer science student who loves to code and study physics. building scalable applications using modern technologies like go, rust, and bun.
+      </p>
+      <p>
+        beyond coding, i enjoy learning and researching astrophysics and quantum mechanics.
+      </p>
+    </div>
+
+    <section class="space-y-8">
+      <h2 class="text-xl font-bold text-[var(--text-primary)] border-b border-[var(--border-color)] pb-2">
+        experience
+      </h2>
+
+      <div class="space-y-8">
+        <article class="space-y-2">
+          <h3 class="font-bold text-[var(--text-primary)]">software engineer @ <a href="https://dognosis.tech" class="hover:text-[var(--accent)]">Dognosis</a></h3>
+          <p class="text-xs text-[var(--text-muted)]">jul 2025 - present</p>
+          <p class="text-sm text-[var(--text-secondary)] leading-relaxed">
+            working on rust backend development for the dognosis api pipeline and cancer report analysis portal.
+          </p>
+        </article>
+
+        <article class="space-y-2">
+          <h3 class="font-bold text-[var(--text-primary)]">software engineer @ <a href="https://systemsway.com" class="hover:text-[var(--accent)]">Systemsway</a></h3>
+          <p class="text-xs text-[var(--text-muted)]">aug 2025 - sept 2025</p>
+          <p class="text-sm text-[var(--text-secondary)] leading-relaxed">
+            developed go backend services and infrastructure for scalable cloud applications.
+          </p>
+        </article>
+
+
+        <article class="space-y-2">
+          <h3 class="font-bold text-[var(--text-primary)]">web3 fellow @ <a href="https://www.solana.com/news/superteam-solana-fellowship" class="hover:text-[var(--accent)]">SuperteamIn</a></h3>
+          <p class="text-xs text-[var(--text-muted)]">jul 2025 - nov 2025</p>
+          <p class="text-sm text-[var(--text-secondary)] leading-relaxed">
+            selected as a solana fellow to build on solana blockchain. developing decentralized applications using rust and anchor framework.
+          </p>
+        </article>
+
+        <article class="space-y-2">
+          <h3 class="font-bold text-[var(--text-primary)]">web dev instructor @ <a href="https://shabzak.tech" class="hover:text-[var(--accent)]">Shabzak tech</a></h3>
+          <p class="text-xs text-[var(--text-muted)]">jul 2024 - oct 2024</p>
+          <p class="text-sm text-[var(--text-secondary)] leading-relaxed">
+            designed and delivered vue.js courses from beginner to advanced levels with project-based curriculum.
+          </p>
+        </article>
+      </div>
+    </section>
+
+    <section class="space-y-4">
+      <h2 class="text-xl font-bold text-[var(--text-primary)] border-b border-[var(--border-color)] pb-2">
+        feedback
+      </h2>
+      <p class="text-sm text-[var(--text-secondary)]">
+        have feedback on my portfolio? <a href="mailto:yuvrajbiswalofficial@gmail.com?subject=Portfolio Feedback" class="hover:text-[var(--accent)]">let me know →</a>
+      </p>
+    </section>
   </div>
 </Layout>

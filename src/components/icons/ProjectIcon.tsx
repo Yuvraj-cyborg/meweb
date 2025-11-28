@@ -11,10 +11,13 @@ import {
   FaGamepad,
   FaCube,
   FaRocket,
+  FaHome,
+  FaCode,
 } from "react-icons/fa";
-import { TbFileZip } from "react-icons/tb";
+import { TbFileZip, TbCircuitResistor } from "react-icons/tb";
 import { FaRegClipboard } from "react-icons/fa6";
 import { FiGitBranch } from "react-icons/fi";
+
 interface ProjectIconProps {
   icon: string;
   className?: string;
@@ -34,11 +37,13 @@ const iconMap: { [key: string]: IconType } = {
   filezip: TbFileZip,
   gitbranch: FiGitBranch,
   clipboard: FaRegClipboard,
+  circuit: TbCircuitResistor,
+  home: FaHome,
 };
 
 const ProjectIcon: React.FC<ProjectIconProps> = ({ icon, className }) => {
   const normalizedIcon = icon.toLowerCase();
-  const IconComponent = iconMap[normalizedIcon];
+  const IconComponent = iconMap[normalizedIcon] || FaCode;
 
   return <IconComponent className={className} />;
 };

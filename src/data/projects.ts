@@ -16,6 +16,34 @@ export interface ProjectItem {
 export const projectsData: Record<string, ProjectItem[]> = {
   Projects: [
     {
+      name: "Bayronik",
+      desc: "Field-Level Baryonic Emulator for Weak Lensing. High-performance, multi-fidelity emulation of baryonic effects directly at the map level. Couples Rust N-body particle-mesh simulator with PyTorch U-Net, delivering realistic 2D matter maps without running full hydrodynamics.",
+      repo: "Yuvraj-cyborg/bayronik",
+      icon: "brain",
+      tech: [{ name: "Rust" }, { name: "Python" }],
+    },
+    {
+      name: "Logical Transformer",
+      desc: "A rule-driven mini-transformer implemented in Rust that performs multi-fact, multi-layer reasoning using symbolic rules instead of embeddings.",
+      repo: "Yuvraj-cyborg/logical-transformer",
+      icon: "circuit",
+      tech: [{ name: "Rust" }],
+    },
+    {
+      name: "P2rent",
+      desc: "Peer-to-peer, decentralised file transfer (a tiny bit-torrent) on QUIC protocol.",
+      repo: "Yuvraj-cyborg/p2rent",
+      icon: "home",
+      tech: [{ name: "Rust" }],
+    },
+    {
+      name: "YieldUQ-GNN",
+      desc: "Uncertainty-Aware Chemical Reaction Yield Prediction. Graph Neural Networks with Quantified Uncertainty for Cross-Coupling Reaction Optimization. Deep learning framework that predicts chemical reaction yields with calibrated uncertainty estimates using Monte Carlo Dropout.",
+      repo: "Yuvraj-cyborg/yielduq-gnn",
+      icon: "brain",
+      tech: [{ name: "Python" }, { name: "PyTorch" }],
+    },
+    {
       name: "Clync",
       desc: "A simple, fast, and cross-platform tool to synchronize your clipboard across multiple devices on your local network.",
       repo: "Yuvraj-cyborg/clync",

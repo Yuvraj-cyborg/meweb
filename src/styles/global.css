@@ -1,75 +1,65 @@
-@import url("https://fonts.googleapis.com/css2?family=Varela+Round&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Space+Mono:wght@400;700&display=swap");
 @import "tailwindcss";
 @plugin "@tailwindcss/typography";
 
 @layer base {
   html {
-    font-family: "Varela Round", sans-serif;
+    font-family: "Space Mono", monospace;
   }
 
-  /* Light mode styles */
+  /* Minimal terminal-inspired theme */
   :root {
-    --bg-primary: hsl(0, 0%, 100%); /* --bg: 0 0% 100% */
-    --bg-secondary: hsl(0, 0%, 92%); /* --bg-dark: 0 0% 92% */
-    --text-primary: hsl(0, 0%, 20%); /* --fg: 0 0% 20% */
-    --text-secondary: hsl(0, 0%, 35%); /* --fg-light: 0 0% 35% */
-    --border-color: hsl(0, 0%, 85%); /* --border: 0 0% 85% */
-    --accent-color: #10b981;
-    --accent-hover: #059669;
-    --code-bg: hsl(0, 0%, 17%);
-    --code-fg: hsl(0, 0%, 85%);
-  }
-
-  /* Dark mode styles */
-  @media (prefers-color-scheme: dark) {
-    :root {
-      --bg-primary: hsl(0, 0%, 17%); /* --bg: 0 0% 17% */
-      --bg-secondary: hsl(0, 0%, 25%); /* --bg-dark: 0 0% 25% */
-      --text-primary: hsl(0, 0%, 85%); /* --fg: 0 0% 85% */
-      --text-secondary: hsl(0, 0%, 75%); /* --fg-light: 0 0% 75% */
-      --border-color: hsl(0, 0%, 35%); /* --border: 0 0% 35% */
-      --accent-color: #10b981;
-      --accent-hover: #34d399;
-      --code-bg: hsl(0, 0%, 10%);
-      --code-fg: hsl(0, 0%, 85%);
-    }
-  }
-
-  [data-theme="light"] {
-    --bg-primary: hsl(0, 0%, 100%);
-    --bg-secondary: hsl(0, 0%, 92%);
-    --text-primary: hsl(0, 0%, 20%);
-    --text-secondary: hsl(0, 0%, 35%);
-    --border-color: hsl(0, 0%, 85%);
-    --accent-color: #10b981;
-    --accent-hover: #059669;
-    --code-bg: hsl(0, 0%, 17%);
-    --code-fg: hsl(0, 0%, 85%);
-  }
-
-  [data-theme="dark"] {
-    --bg-primary: hsl(0, 0%, 17%);
-    --bg-secondary: hsl(0, 0%, 25%);
-    --text-primary: hsl(0, 0%, 85%);
-    --text-secondary: hsl(0, 0%, 75%);
-    --border-color: hsl(0, 0%, 35%);
-    --accent-color: #10b981;
-    --accent-hover: #34d399;
-    --code-bg: hsl(0, 0%, 10%);
-    --code-fg: hsl(0, 0%, 85%);
+    --bg-primary: #0a0a0a;
+    --bg-secondary: #1a1a1a;
+    --text-primary: #e0e0e0;
+    --text-secondary: #a0a0a0;
+    --text-muted: #666666;
+    --accent: #00ff41;
+    --accent-dim: #00cc33;
+    --border-color: #333333;
+    --grid-color: rgba(255, 255, 255, 0.03);
   }
 
   body {
-    background-color: var(--bg-primary);
+    background: var(--bg-primary);
     color: var(--text-primary);
-    /* Remove transition to prevent flash during theme changes */
-    line-height: 1.6;
-    /* Prevent slow transitions on background/color which cause flicker */
+    line-height: 1.8;
     transition: none !important;
+    min-height: 100vh;
+    position: relative;
+  }
+
+  /* Subtle grid background */
+  .grid-bg {
+    background-image: 
+      linear-gradient(var(--grid-color) 1px, transparent 1px),
+      linear-gradient(90deg, var(--grid-color) 1px, transparent 1px);
+    background-size: 24px 24px;
+  }
+
+  /* Clean links */
+  a {
+    color: var(--accent);
+    text-decoration: none;
+    transition: color 0.2s ease;
+  }
+
+  a:hover {
+    color: var(--text-primary);
+  }
+
+  /* Command prompt style */
+  .prompt {
+    color: var(--accent);
+  }
+
+  .prompt::before {
+    content: '$ ';
+    color: var(--text-muted);
   }
 }
 
-/* Custom prose overrides for typography plugin */
+/* Custom prose overrides */
 .prose h1,
 .prose h2,
 .prose h3,
@@ -82,11 +72,17 @@
 .prose p {
   margin-top: 0.75em;
   margin-bottom: 0.75em;
+  color: var(--text-secondary);
 }
 
 .prose pre {
-  background-color: var(--code-bg) !important;
-  color: var(--code-fg);
+  background-color: var(--bg-secondary) !important;
+  color: var(--text-primary);
+  border: 1px solid var(--border-color);
+}
+
+.prose code {
+  font-family: "Space Mono", monospace;
 }
 
 .prose pre code {
@@ -94,24 +90,14 @@
   color: inherit;
 }
 
-/* Header container stable sizing to avoid blink/growth */
-
-/* Disable fade animation for header during Astro View Transitions */
+/* Disable default transitions */
 ::view-transition-old(header),
 ::view-transition-new(header) {
   animation: none !important;
   opacity: 1 !important;
 }
-.site-header,
-header,
-.min-w-fit {
-  /* fix height so active state doesn't change layout */
-  height: 2.75rem;
-  min-height: 2.75rem;
-}
 
-/* Override any global transition-all class in header children to only animate colors */
-.site-header *[class*="transition-all"],
-header *[class*="transition-all"] {
-  transition-property: color, background-color, border-color, box-shadow !important;
+/* Project item hover */
+.project-item:hover .project-name {
+  color: var(--accent);
 }

@@ -3,17 +3,22 @@ import Layout from '../layouts/Layout.astro';
 ---
 
 <Layout title="Now - Yuvraj Biswal">
-  <div class="space-y-8">
-    <h1 class="text-3xl font-bold text-[var(--text-primary)]">Now</h1>
+  <div class="space-y-16">
+    <div>
+      <h1 class="text-3xl md:text-4xl font-bold mb-2" style="color: var(--accent);">now</h1>
+      <p class="text-xs text-[var(--text-muted)]">last updated: november 2025</p>
+    </div>
 
-    <div class="space-y-4 text-sm leading-6">
-      <h2 class="text-xl">November 2025</h2>
-
-      <ul class="list-disc pl-5 space-y-2 text-[var(--text-secondary)]">
-        <li>Working at Dognosis tech as a Research and Development software engineer</li>
-        <li>Got into top 5% of Solana fellowship by SuperteamIn</li>
-        <li>Working on Bayronik</li>
-      </ul>
+    <div class="space-y-4 text-[var(--text-secondary)] leading-relaxed max-w-3xl">
+      <p>
+        > working at <span style="color: var(--accent);">Dognosis</span> as a research and development software engineer.
+      </p>
+      <p>
+        > Joined <span style="color: var(--accent);">SuperteamIn</span> as a full-fledged member.
+      </p>
+      <p>
+        > working on <span style="color: var(--accent);">bayronik</span> - field-level baryonic emulator for weak lensing.
+      </p>
     </div>
   </div>
 </Layout>

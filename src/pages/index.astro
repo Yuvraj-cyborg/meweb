@@ -1,109 +1,87 @@
 ---
 import Layout from '../layouts/Layout.astro';
-import { getCollection } from 'astro:content';
-
-const posts = (await getCollection('blog')).sort(
-  (a, b) => b.data.date.valueOf() - a.data.date.valueOf()
-);
-const featuredPost = posts[0];
 ---
 
-<Layout title="Yuvraj Biswal - Portfolio">
-  <div class="min-h-screen space-y-6">
-    <!-- Hero Section -->
-    <div class="pt-8">
-      <div class="flex items-start justify-between gap-8">
-        <div class="space-y-2 flex-1">
-            <h2 class="text-xl">Hi, I am</h2>
-          <h1 class="text-5xl font-bold text-[var(--text-primary)] leading-tight">
-             Yuvraj
-          </h1>
-          <h2 class="text-2xl">A young man with quantum based perception</h2>
-          <p class="text-xl text-[var(--text-secondary)] leading-relaxed max-w-2xl">
-            I build, research and build.
-          </p>
+<Layout title="Yuvraj Biswal - Systems Engineer & Researcher">
+  <div class="space-y-12">
+    <!-- Hero Section with Retro Aesthetics -->
+    <div class="terminal-window p-6 md:p-8">
+      <div class="flex items-start gap-6 flex-col md:flex-row">
+        <div class="flex-1 space-y-6">
+          <div>
+            <p class="retro-text text-[var(--accent-secondary)] text-sm mb-2">$ whoami</p>
+            <h1 class="retro-heading text-3xl md:text-4xl lg:text-5xl text-[var(--text-primary)] mb-4 leading-tight">
+              YUVRAJ
+            </h1>
+            <p class="retro-text text-lg md:text-xl text-[var(--text-secondary)] leading-relaxed">
+              A young man with quantum based perception
+            </p>
+          </div>
+
+          <div class="border-l-4 border-[var(--accent-primary)] pl-4">
+            <p class="retro-text text-base text-[var(--text-secondary)] leading-relaxed">
+              I build, research and build. Systems engineer working on  databases, 
+              deep learning models, and low-level infrastructure. Computer science undergrad who loves physics and maths.
+            </p>
+          </div>
         </div>
+
         <div class="hidden md:block flex-shrink-0">
-          <img
-            src="/ben.jpg"
-            alt="Profile"
-            class="w-52 h-52 rounded-2xl object-cover"
-          />
+          <div class="pixel-border p-2 bg-[var(--bg-tertiary)]">
+            <img
+              src="/ben.jpg"
+              alt="Yuvraj"
+              class="w-40 h-40 lg:w-48 lg:h-48 object-cover"
+              style="image-rendering: pixelated;"
+            />
+          </div>
         </div>
       </div>
 
-      <div class="flex flex-wrap gap-3">
+      <!-- Social Links -->
+      <div class="flex flex-wrap gap-3 mt-8 pt-6 border-t-2 border-[var(--border-color)]">
         <a
           href="https://github.com/Yuvraj-cyborg"
-          class="inline-flex items-center gap-2 px-4 py-2 bg-[var(--bg-secondary)] border border-[var(--border-color)] rounded-lg text-sm text-[var(--text-primary)] hover:bg-[var(--bg-primary)] transition-colors"
+          class="pixel-border-sm px-4 py-2 bg-[var(--bg-tertiary)] text-[var(--text-primary)] hover:text-[var(--accent)] transition-all retro-text text-xs"
         >
-          <svg width="16" height="16" fill="currentColor" viewBox="0 0 24 24">
-            <path fill-rule="evenodd" d="M12 2C6.477 2 2 6.477 2 12c0 4.418 2.865 8.168 6.839 9.492.5.092.682-.217.682-.482 0-.237-.009-.868-.014-1.703-2.782.605-3.369-1.343-3.369-1.343-.454-1.158-1.11-1.466-1.11-1.466-.908-.62.069-.608.069-.608 1.003.07 1.531 1.032 1.531 1.032.892 1.53 2.341 1.088 2.91.832.092-.647.35-1.088.636-1.338-2.22-.253-4.555-1.113-4.555-4.951 0-1.093.39-1.988 1.031-2.688-.103-.253-.446-1.272.098-2.65 0 0 .84-.27 2.75 1.026A9.564 9.564 0 0112 6.82c.85.004 1.705.115 2.504.337 1.909-1.296 2.747-1.027 2.747-1.027.546 1.378.203 2.398.1 2.65.64.7 1.03 1.595 1.03 2.688 0 3.848-2.338 4.695-4.566 4.942.359.308.678.92.678 1.855 0 1.338-.012 2.419-.012 2.747 0 .268.18.58.688.482A10.001 10.001 0 0022 12c0-5.523-4.477-10-10-10z" clip-rule="evenodd"/>
-          </svg>
+          <span class="text-[var(--text-muted)]">[</span> GitHub <span class="text-[var(--text-muted)]">]</span>
         </a>
         <a
           href="/resume-new.pdf"
-          class="inline-flex items-center gap-2 px-4 py-2 bg-[var(--bg-secondary)] border border-[var(--border-color)] rounded-lg text-sm text-[var(--text-primary)] hover:bg-[var(--bg-primary)] transition-colors"
+          class="pixel-border-sm px-4 py-2 bg-[var(--bg-tertiary)] text-[var(--text-primary)] hover:text-[var(--accent)] transition-all retro-text text-xs"
         >
-          <svg width="16" height="16" fill="currentColor" viewBox="0 0 24 24">
-            <path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8l-6-6zM6 4h8v4h4v12H6V4zM8 12h8m-8 4h8m-8 4h4"/>
-          </svg>
+          <span class="text-[var(--text-muted)]">[</span> Resume <span class="text-[var(--text-muted)]">]</span>
         </a>
         <a
           href="https://x.com/yuvicodes"
-          class="inline-flex items-center gap-2 px-4 py-2 bg-[var(--bg-secondary)] border border-[var(--border-color)] rounded-lg text-sm text-[var(--text-primary)] hover:bg-[var(--bg-primary)] transition-colors"
+          class="pixel-border-sm px-4 py-2 bg-[var(--bg-tertiary)] text-[var(--text-primary)] hover:text-[var(--accent)] transition-all retro-text text-xs"
         >
-          <svg width="16" height="16" fill="currentColor" viewBox="0 0 24 24">
-            <path d="M18.244 2.25h3.308l-7.227 8.26 8.502 11.24H16.17l-5.214-6.817L4.99 21.75H1.68l7.73-8.835L1.254 2.25H8.08l4.713 6.231zm-1.161 17.52h1.833L7.084 4.126H5.117z"/>
-          </svg>
+          <span class="text-[var(--text-muted)]">[</span> X/Twitter <span class="text-[var(--text-muted)]">]</span>
         </a>
         <a
-        href="https://www.buymeacoffee.com/yuvrajbiswg"
-        class="inline-flex items-center gap-2 px-4 py-2 bg-[var(--bg-secondary)] border border-[var(--border-color)] rounded-lg text-sm text-[var(--text-primary)] hover:bg-[var(--bg-primary)] transition-colors"
-      >
-        <svg width="16" height="16" fill="currentColor" viewBox="0 0 24 24">
-          <path d="M20 3H4v10c0 2.21 1.79 4 4 4h6c2.21 0 4-1.79 4-4v-3h2c1.11 0 2-.89 2-2V5c0-1.11-.89-2-2-2zm0 5h-2V5h2v3zM4 19h16v2H4v-2z"/>
-        </svg>
-      </a>
+          href="https://www.buymeacoffee.com/yuvrajbiswg"
+          class="pixel-border-sm px-4 py-2 bg-[var(--bg-tertiary)] text-[var(--text-primary)] hover:text-[var(--accent)] transition-all retro-text text-xs"
+        >
+          <span class="text-[var(--text-muted)]">[</span> Buy Me Coffee <span class="text-[var(--text-muted)]">]</span>
+        </a>
       </div>
     </div>
 
     <!-- Bio Section -->
-    <div class="space-y-8">
-      <h2 class="text-2xl font-semibold text-[var(--text-primary)]">Bio</h2>
-      <div class="space-y-6 text-[var(--text-secondary)] leading-relaxed text-lg">
-        <p>
-          I'm a Computer Science student and a programmer (i hate tags). I enjoy solving complex problems and building scalable applications (Yea i do).
-          This website is to showcase my work, thoughts and share my research.
-        <p>
-          Few <a href="/work" class="text-[var(--accent-color)] hover:underline font-medium">work stuff</a> I've built so far.
-        </p>
-      </div>
-    </div>
-
-    <!-- Featured Posts -->
-    {featuredPost && (
-      <div class="space-y-6">
-        <h2 class="text-2xl font-semibold text-[var(--text-primary)]">From the Blog</h2>
-        <div class="space-y-4">
-          <a href={`/blog/${featuredPost.slug}`} class="group">
-            <div class="flex items-baseline justify-between gap-4">
-              <h3 class="font-medium text-[var(--text-primary)] group-hover:text-[var(--accent-color)] transition-colors">
-                {featuredPost.data.title}
-              </h3>
-              <time class="text-sm text-[var(--text-secondary)] whitespace-nowrap">
-                {featuredPost.data.date.toLocaleDateString('en-US', {
-                  year: 'numeric',
-                  month: 'short',
-                  day: 'numeric',
-                })}
-              </time>
-            </div>
-          </a>
+    <div class="space-y-6">
+      <h2 class="retro-heading text-xl md:text-2xl text-[var(--text-primary)]">
+        <span class="text-[var(--accent-primary)]">$</span> cat bio.txt
+      </h2>
+      <div class="terminal-window p-6">
+        <div class="space-y-4 retro-text text-base text-[var(--text-secondary)] leading-relaxed">
+          <p>
+            I'm a Computer Science student and a programmer (i hate tags). I enjoy solving complex problems and building scalable applications (Yea i do). 
+            This website is to showcase my work, thoughts and share my research.
+          </p>
         </div>
       </div>
-    )}
-
-
+    </div>
+      </div>
+    </div>
   </div>
 </Layout>
