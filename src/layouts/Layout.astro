@@ -1,6 +1,9 @@
 ---
 import '../styles/global.css';
 import { ViewTransitions } from 'astro:transitions';
+import { inject } from '@vercel/analytics';
+
+inject();
 
 export interface Props {
   title: string;
