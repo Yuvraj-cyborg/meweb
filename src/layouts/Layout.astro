@@ -1,9 +1,7 @@
 ---
 import '../styles/global.css';
 import { ViewTransitions } from 'astro:transitions';
-import { inject } from '@vercel/analytics';
-
-inject();
+import Analytics from '@vercel/analytics/astro';
 
 export interface Props {
   title: string;
@@ -41,6 +39,7 @@ const currentPath = Astro.url.pathname;
         background: var(--bg-primary);
       }
     </style>
+    <Analytics mode="production"/>
   </head>
   <body class="min-h-screen grid-bg">
     <div class="flex min-h-screen">
