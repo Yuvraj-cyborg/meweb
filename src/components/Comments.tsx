@@ -6,7 +6,7 @@ import Giscus from "@giscus/react";
 // This function runs on the client to determine the current theme
 const getTheme = (): "light" | "dark" => {
   if (typeof window === "undefined") {
-    return "light"; // Default to light theme on the server
+    return "light";
   }
   return (
     (document.documentElement.getAttribute("data-theme") as "light" | "dark") ||
