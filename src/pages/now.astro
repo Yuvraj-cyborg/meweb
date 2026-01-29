@@ -3,22 +3,24 @@ import Layout from '../layouts/Layout.astro';
 ---
 
 <Layout title="Now - Yuvraj Biswal">
-  <div class="space-y-16">
-    <div>
-      <h1 class="text-3xl md:text-4xl font-bold mb-2" style="color: var(--accent);">now</h1>
-      <p class="text-xs text-[var(--text-muted)]">last updated: January 2026</p>
-    </div>
+  <div class="space-y-8">
+    <section>
+      <h1 class="text-[25px] font-medium text-[var(--slate-700)] mb-2" style="font-family: 'Bricolage Grotesque', Inter, sans-serif;">January, 2026</h1>
+      <p class="text-sm text-[var(--text-muted)]">
+        previous entry: <a href="#">December 2025</a>
+      </p>
+    </section>
 
-    <div class="space-y-4 text-[var(--text-secondary)] leading-relaxed max-w-3xl">
+    <section class="text-[var(--text-secondary)] leading-relaxed space-y-4">
       <p>
-        > working at <span style="color: var(--accent);">Dognosis</span> as a research and development software engineer.
+        Here's (some of) what I've been up to:
       </p>
-      <p>
-        > Joined <span style="color: var(--accent);">SuperteamIn</span> as a full-fledged member.
-      </p>
-      <p>
-        > working on <span style="color: var(--accent);">bayronik</span> - field-level baryonic emulator for weak lensing.
-      </p>
-    </div>
+      
+      <ul class="list-disc space-y-1.5 ml-5">
+        <li>Working at <strong>Dognosis</strong> as a R&D software engineer.</li>
+        <li>Joined <strong>SuperteamIn</strong> as a full-fledged member.</li>
+        <li>Working on <a href="https://github.com/Yuvraj-cyborg/bayronik">Bayronik</a> — field-level baryonic emulator for weak lensing.</li>
+      </ul>
+    </section>
   </div>
 </Layout>

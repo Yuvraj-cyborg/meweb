@@ -1,65 +1,88 @@
-@import url("https://fonts.googleapis.com/css2?family=Space+Mono:wght@400;700&display=swap");
+@import url("https://rsms.me/inter/inter.css");
+@import url("https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:wght@400;500;600&display=swap");
 @import "tailwindcss";
 @plugin "@tailwindcss/typography";
 
 @layer base {
   html {
-    font-family: "Space Mono", monospace;
+    font-family: Inter, ui-sans-serif, system-ui, sans-serif, "Apple Color Emoji", "Segoe UI Emoji";
   }
 
-  /* Minimal terminal-inspired theme */
+  @supports (font-variation-settings: normal) {
+    html {
+      font-family: "Inter var", ui-sans-serif, system-ui, sans-serif;
+    }
+  }
+
   :root {
-    --bg-primary: #0a0a0a;
-    --bg-secondary: #1a1a1a;
-    --text-primary: #e0e0e0;
-    --text-secondary: #a0a0a0;
-    --text-muted: #666666;
-    --accent: #00ff41;
-    --accent-dim: #00cc33;
-    --border-color: #333333;
-    --grid-color: rgba(255, 255, 255, 0.03);
+    /* Cozy color palette from injuly.in */
+    --sky-50: #f0f9ff;
+    --sky-100: #e0f2fe;
+    --sky-200: #bae6fd;
+    --sky-600: #0284c7;
+    --sky-700: #0369a1;
+    
+    --slate-100: #f1f5f9;
+    --slate-200: #e2e8f0;
+    --slate-300: #cbd5e1;
+    --slate-400: #94a3b8;
+    --slate-500: #64748b;
+    --slate-600: #475569;
+    --slate-700: #334155;
+    --slate-800: #1e293b;
+    
+    --bg-primary: #fafafa;
+    --bg-secondary: #ffffff;
+    --text-primary: var(--slate-700);
+    --text-secondary: var(--slate-600);
+    --text-muted: var(--slate-400);
+    --accent: var(--sky-700);
+    --accent-hover: var(--sky-600);
+    --border-color: var(--slate-200);
   }
 
   body {
     background: var(--bg-primary);
     color: var(--text-primary);
-    line-height: 1.8;
-    transition: none !important;
+    line-height: 1.65;
     min-height: 100vh;
-    position: relative;
+    font-size: 16px;
+    font-weight: 400;
   }
 
-  /* Subtle grid background */
-  .grid-bg {
-    background-image: 
-      linear-gradient(var(--grid-color) 1px, transparent 1px),
-      linear-gradient(90deg, var(--grid-color) 1px, transparent 1px);
-    background-size: 24px 24px;
+  strong {
+    font-weight: 500;
   }
 
   /* Clean links */
   a {
     color: var(--accent);
-    text-decoration: none;
-    transition: color 0.2s ease;
+    text-decoration-color: var(--accent);
   }
 
   a:hover {
-    color: var(--text-primary);
+    transition-duration: 0.3s;
   }
 
-  /* Command prompt style */
-  .prompt {
-    color: var(--accent);
-  }
-
-  .prompt::before {
-    content: '$ ';
-    color: var(--text-muted);
+  /* Navigation links - no underline */
+  nav a {
+    text-decoration: none;
   }
 }
 
+/* Prevent header from animating during page transitions */
+::view-transition-old(header),
+::view-transition-new(header) {
+  animation: none;
+  mix-blend-mode: normal;
+}
+
 /* Custom prose overrides */
+.prose {
+  --tw-prose-body: var(--text-secondary);
+  --tw-prose-headings: var(--text-primary);
+}
+
 .prose h1,
 .prose h2,
 .prose h3,
@@ -67,37 +90,78 @@
 .prose h5,
 .prose h6 {
   color: var(--text-primary);
+  font-weight: 600;
 }
 
 .prose p {
-  margin-top: 0.75em;
-  margin-bottom: 0.75em;
+  margin-top: 1em;
+  margin-bottom: 1em;
   color: var(--text-secondary);
 }
 
-.prose pre {
-  background-color: var(--bg-secondary) !important;
-  color: var(--text-primary);
-  border: 1px solid var(--border-color);
+.prose a {
+  color: var(--accent);
 }
 
-.prose code {
-  font-family: "Space Mono", monospace;
-}
-
-.prose pre code {
-  background-color: transparent;
-  color: inherit;
-}
-
-/* Disable default transitions */
-::view-transition-old(header),
-::view-transition-new(header) {
-  animation: none !important;
-  opacity: 1 !important;
+/* Blockquote styling */
+blockquote {
+  border-left: 3px solid var(--accent);
+  padding-left: 1rem;
+  margin: 1.5rem 0;
+  font-style: italic;
+  color: var(--text-secondary);
 }
 
 /* Project item hover */
+.project-item {
+  transition: background-color 0.15s ease;
+}
+
 .project-item:hover .project-name {
   color: var(--accent);
+}
+
+/* Work experience card */
+.work-card {
+  border-bottom: 1px solid var(--border-color);
+  padding-bottom: 1.5rem;
+}
+
+.work-card:last-child {
+  border-bottom: none;
+}
+
+/* Pill buttons - soft, warm, cozy rectangular style */
+.pill {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
+  padding: 0.4rem 0.875rem;
+  color: var(--slate-600);
+  font-size: 0.875rem;
+  font-weight: 450;
+  text-decoration: none;
+  background-color: white;
+  border: 1px solid var(--slate-200);
+  border-radius: 6px;
+  transition: all 0.2s ease;
+  box-shadow: 0 1px 2px rgba(0, 0, 0, 0.04);
+}
+
+.pill:hover {
+  cursor: pointer;
+  color: var(--slate-700);
+  background-color: var(--slate-50);
+  border-color: var(--slate-300);
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.06);
+}
+
+.pill:active {
+  transform: scale(0.98);
+}
+
+.pill svg {
+  width: 1rem;
+  height: 1rem;
+  opacity: 0.7;
 }

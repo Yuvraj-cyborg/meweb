@@ -1,66 +1,39 @@
 ---
 import Layout from '../layouts/Layout.astro';
 import { projectsData } from '../data/projects';
-import TechIcon from '../components/icons/TechIcon';
 ---
 
 <Layout title="Work - Yuvraj Biswal">
-  <div class="space-y-16">
-    <div>
-      <h1 class="text-3xl md:text-4xl font-bold mb-4" style="color: var(--accent);">work</h1>
-      <p class="text-[var(--text-secondary)]">systems, databases, machine learning, and cli tools (sometimes libraries)</p>
-    </div>
+  <div class="space-y-10">
+    <section>
+      <h1 class="text-[25px] font-medium text-[var(--slate-700)] mb-4" style="font-family: 'Bricolage Grotesque', Inter, sans-serif;">Work</h1>
+      <p class="text-[var(--text-secondary)]">
+        A collection of projects I've worked on — systems, databases, ML, and CLI tools.
+      </p>
+    </section>
 
-    {Object.keys(projectsData).map((category) => (
-      <section class="space-y-8">
-        <h2 class="text-xl font-bold text-[var(--text-primary)] border-b border-[var(--border-color)] pb-2">
-          {category.toLowerCase()}
-        </h2>
-
-        <div class="space-y-12">
-          {projectsData[category as keyof typeof projectsData].map((project) => (
-            <article class="project-item space-y-3">
-              <div class="flex items-baseline gap-3 flex-wrap">
-                <h3 class="project-name text-lg font-bold text-[var(--text-primary)]">
-                  {project.name}
-                </h3>
-                <div class="flex gap-2 items-center">
-                  {project.tech.map((t) => (
-                    <TechIcon tech={t.name} client:load />
-                  ))}
-                </div>
-              </div>
-              
-              <p class="text-sm text-[var(--text-secondary)] leading-relaxed max-w-3xl">
-                {project.desc}
-              </p>
-
-              <div class="flex gap-4 text-xs">
-                {project.link && (
-                  <a 
-                    href={project.link} 
-                    target="_blank" 
-                    rel="noopener noreferrer"
-                    class="text-[var(--text-primary)] hover:text-[var(--accent)] transition-colors"
-                  >
-                    live →
-                  </a>
-                )}
-                {project.repo && (
-                  <a 
-                    href={`https://github.com/${project.repo}`} 
-                    target="_blank" 
-                    rel="noopener noreferrer"
-                    class="text-[var(--text-primary)] hover:text-[var(--accent)] transition-colors"
-                  >
-                    github →
-                  </a>
-                )}
-              </div>
-            </article>
-          ))}
-        </div>
-      </section>
-    ))}
+    <section>
+      <h2 class="text-[22px] font-medium text-[var(--slate-700)] mb-5" style="font-family: 'Bricolage Grotesque', Inter, sans-serif;">Projects</h2>
+      
+      <ul class="space-y-0">
+        {projectsData.Projects.map((project) => (
+          <li class="py-3 border-b border-[var(--border-color)] last:border-b-0">
+            <div class="flex flex-col sm:flex-row sm:items-baseline gap-1 sm:gap-2">
+              <a 
+                href={project.repo ? `https://github.com/${project.repo}` : project.link} 
+                target="_blank" 
+                rel="noopener noreferrer"
+                class="font-medium text-[var(--slate-700)]"
+              >
+                {project.name}
+              </a>
+              <span class="text-[15px] text-[var(--text-secondary)]">
+                {project.desc.split('.')[0]}.
+              </span>
+            </div>
+          </li>
+        ))}
+      </ul>
+    </section>
   </div>
 </Layout>
