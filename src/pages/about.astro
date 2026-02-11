@@ -3,11 +3,11 @@ import Layout from '../layouts/Layout.astro';
 ---
 
 <Layout title="About - Yuvraj Biswal">
-  <div class="space-y-10">
+  <div class="space-y-12">
     <section>
-      <h1 class="text-[25px] font-medium text-[var(--slate-700)] mb-5" style="font-family: 'Bricolage Grotesque', Inter, sans-serif;">Me</h1>
+      <h1 class="section-heading text-[28px] mb-6">Me</h1>
 
-      <div class="space-y-4 text-[var(--text-secondary)] leading-relaxed">
+      <div class="space-y-5 text-[var(--text-secondary)] leading-relaxed text-[15.5px]">
         <p>
           I'm mostly into physics, maths and programming.
           Currently working at <a href="https://dognosis.tech">Dognosis</a>.
@@ -15,30 +15,30 @@ import Layout from '../layouts/Layout.astro';
 
         <p>At the time of writing, my interests are:</p>
 
-        <ul class="list-disc space-y-1.5 ml-5">
+        <ul class="list-disc space-y-2 ml-5">
           <li><strong>Programming:</strong> Systems, CLI tools, Backend, Deep Learning, and distributed systems.</li>
           <li><strong>Physics:</strong> Quantum mechanics, astrophysics.</li>
-          <li><strong>Math:</strong> Calculus,Statistics,linear algebra.</li>
+          <li><strong>Math:</strong> Calculus, statistics, linear algebra.</li>
         </ul>
       </div>
     </section>
 
     <section>
-      <h2 class="text-[22px] font-medium text-[var(--slate-700)] mb-6" style="font-family: 'Bricolage Grotesque', Inter, sans-serif;">Experience</h2>
+      <h2 class="section-heading text-[22px] mb-8">Experience</h2>
 
-      <div class="space-y-6">
+      <div class="space-y-8">
         <article class="work-card">
           <div class="flex items-start gap-4">
-            <div class="w-11 h-11 bg-white rounded-lg flex items-center justify-center flex-shrink-0 text-lg">
-              <img src="/dognosis_logo.jpg" alt="Dognosis Logo">
+            <div class="w-11 h-11 bg-white rounded-lg flex items-center justify-center flex-shrink-0 overflow-hidden border border-[var(--border-color)]">
+              <img src="/dognosis_logo.jpg" alt="Dognosis Logo" class="w-full h-full object-cover">
             </div>
             <div class="flex-1">
-              <h3 class="font-medium text-[var(--slate-700)]">
+              <h3 class="font-medium text-[var(--slate-800)]">
                 <a href="https://dognosis.tech">Dognosis</a>
               </h3>
-              <p class="text-sm text-[var(--sky-700)]">Software Engineer</p>
-              <p class="text-xs text-[var(--text-muted)] mb-1.5">July 2025 – Present</p>
-              <p class="text-[15px] text-[var(--text-secondary)]">
+              <p class="mono mt-0.5" style="text-transform: none; letter-spacing: 0.02em; color: var(--accent-hover);">Software Engineer</p>
+              <p class="mono mt-0.5" style="text-transform: none;">July 2025 – Present</p>
+              <p class="text-[15px] text-[var(--text-secondary)] mt-2 leading-relaxed">
                 Working on Rust backend development for the Dognosis API pipeline and cancer report analysis portal.
               </p>
             </div>
@@ -47,16 +47,16 @@ import Layout from '../layouts/Layout.astro';
 
         <article class="work-card">
           <div class="flex items-start gap-4">
-            <div class="w-11 h-11 bg-white border border-[var(--border-color)] rounded-lg flex items-center justify-center flex-shrink-0 text-lg">
-              <img src="/stealth.jpg" alt="">
+            <div class="w-11 h-11 bg-white border border-[var(--border-color)] rounded-lg flex items-center justify-center flex-shrink-0 overflow-hidden">
+              <img src="/stealth.jpg" alt="" class="w-full h-full object-cover">
             </div>
             <div class="flex-1">
-              <h3 class="font-medium text-[var(--slate-700)]">
+              <h3 class="font-medium text-[var(--slate-800)]">
                 <a href="https://systemsway.com">Systemsway</a>
               </h3>
-              <p class="text-sm text-[var(--sky-700)]">Software Engineer</p>
-              <p class="text-xs text-[var(--text-muted)] mb-1.5">August 2025 – September 2025</p>
-              <p class="text-[15px] text-[var(--text-secondary)]">
+              <p class="mono mt-0.5" style="text-transform: none; letter-spacing: 0.02em; color: var(--accent-hover);">Software Engineer</p>
+              <p class="mono mt-0.5" style="text-transform: none;">August 2025 – September 2025</p>
+              <p class="text-[15px] text-[var(--text-secondary)] mt-2 leading-relaxed">
                 Developed Go backend services and infrastructure for scalable cloud applications.
               </p>
             </div>
@@ -65,16 +65,16 @@ import Layout from '../layouts/Layout.astro';
 
         <article class="work-card">
           <div class="flex items-start gap-4">
-            <div class="w-11 h-11 bg-white rounded-lg flex items-center justify-center flex-shrink-0 text-lg">
-              <img src="/superteam_logo.jpg" alt="">
+            <div class="w-11 h-11 bg-white rounded-lg flex items-center justify-center flex-shrink-0 overflow-hidden border border-[var(--border-color)]">
+              <img src="/superteam_logo.jpg" alt="" class="w-full h-full object-cover">
             </div>
             <div class="flex-1">
-              <h3 class="font-medium text-[var(--slate-700)]">
+              <h3 class="font-medium text-[var(--slate-800)]">
                 <a href="https://superteam.fun">SuperteamIn</a>
               </h3>
-              <p class="text-sm text-[var(--sky-700)]">Web3 Fellow</p>
-              <p class="text-xs text-[var(--text-muted)] mb-1.5">July 2025 – November 2025</p>
-              <p class="text-[15px] text-[var(--text-secondary)]">
+              <p class="mono mt-0.5" style="text-transform: none; letter-spacing: 0.02em; color: var(--accent-hover);">Web3 Fellow</p>
+              <p class="mono mt-0.5" style="text-transform: none;">July 2025 – November 2025</p>
+              <p class="text-[15px] text-[var(--text-secondary)] mt-2 leading-relaxed">
                 Selected as a Solana fellow to build on Solana blockchain. Developing decentralized applications using Rust and Anchor framework.
               </p>
             </div>
@@ -83,16 +83,16 @@ import Layout from '../layouts/Layout.astro';
 
         <article class="work-card">
           <div class="flex items-start gap-4">
-            <div class="w-11 h-11 bg-white rounded-lg flex items-center justify-center flex-shrink-0 text-lg">
-              <img src="/shabzak_logo.jpg" alt="">
+            <div class="w-11 h-11 bg-white rounded-lg flex items-center justify-center flex-shrink-0 overflow-hidden border border-[var(--border-color)]">
+              <img src="/shabzak_logo.jpg" alt="" class="w-full h-full object-cover">
             </div>
             <div class="flex-1">
-              <h3 class="font-medium text-[var(--slate-700)]">
+              <h3 class="font-medium text-[var(--slate-800)]">
                 <a href="https://shabzak.tech">Shabzak Tech</a>
               </h3>
-              <p class="text-sm text-[var(--sky-700)]">Web Dev Instructor</p>
-              <p class="text-xs text-[var(--text-muted)] mb-1.5">July 2024 – October 2024</p>
-              <p class="text-[15px] text-[var(--text-secondary)]">
+              <p class="mono mt-0.5" style="text-transform: none; letter-spacing: 0.02em; color: var(--accent-hover);">Web Dev Instructor</p>
+              <p class="mono mt-0.5" style="text-transform: none;">July 2024 – October 2024</p>
+              <p class="text-[15px] text-[var(--text-secondary)] mt-2 leading-relaxed">
                 Designed and delivered Vue.js and NuxtJs courses from beginner to advanced levels with project-based curriculum.
               </p>
             </div>
@@ -102,8 +102,8 @@ import Layout from '../layouts/Layout.astro';
     </section>
 
     <section>
-      <h2 class="text-[22px] font-medium text-[var(--slate-700)] mb-3" style="font-family: 'Bricolage Grotesque', Inter, sans-serif;">Feedback</h2>
-      <p class="text-[var(--text-secondary)]">
+      <h2 class="section-heading text-[22px] mb-3">Feedback</h2>
+      <p class="text-[var(--text-secondary)] text-[15.5px]">
         Have feedback on my portfolio? <a href="mailto:yuvrajbiswalofficial@gmail.com?subject=Portfolio Feedback">Let me know →</a>
       </p>
     </section>

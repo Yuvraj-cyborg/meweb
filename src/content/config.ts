@@ -1,3 +1,15 @@
-// Content collections configuration
-// Currently no collections defined - blog and journal removed
-export const collections = {};
+import { defineCollection, z } from 'astro:content';
+
+const blog = defineCollection({
+  type: 'content',
+  schema: z.object({
+    title: z.string(),
+    description: z.string(),
+    date: z.date(),
+    tags: z.array(z.string()).default([]),
+    draft: z.boolean().default(false),
+    wordCount: z.number().optional(),
+  }),
+});
+
+export const collections = { blog };

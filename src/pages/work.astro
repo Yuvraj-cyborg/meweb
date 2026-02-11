@@ -4,36 +4,74 @@ import { projectsData } from '../data/projects';
 ---
 
 <Layout title="Work - Yuvraj Biswal">
-  <div class="space-y-10">
+  <div class="space-y-12">
     <section>
-      <h1 class="text-[25px] font-medium text-[var(--slate-700)] mb-4" style="font-family: 'Bricolage Grotesque', Inter, sans-serif;">Work</h1>
-      <p class="text-[var(--text-secondary)]">
-        A collection of projects I've worked on systems, databases, ML, and CLI tools.
+      <h1 class="section-heading text-[28px] mb-3">Work</h1>
+      <p class="text-[var(--text-secondary)] text-[15.5px]">
+        A collection of projects I've worked on — systems, databases, ML, and CLI tools.
       </p>
     </section>
 
     <section>
-      <h2 class="text-[22px] font-medium text-[var(--slate-700)] mb-5" style="font-family: 'Bricolage Grotesque', Inter, sans-serif;">Projects</h2>
+      <div class="mono mb-5">Projects</div>
       
       <ul class="space-y-0">
         {projectsData.Projects.map((project) => (
-          <li class="py-3 border-b border-[var(--border-color)] last:border-b-0">
-            <div class="flex flex-col sm:flex-row sm:items-baseline gap-1 sm:gap-2">
+          <li class="py-3.5 border-b border-[var(--border-color)] last:border-b-0 project-item">
+            <div class="flex flex-col sm:flex-row sm:items-baseline gap-1 sm:gap-3">
               <a 
                 href={project.repo ? `https://github.com/${project.repo}` : project.link} 
                 target="_blank" 
                 rel="noopener noreferrer"
-                class="font-medium text-[var(--slate-700)]"
+                class="project-name font-medium text-[var(--slate-800)] transition-colors"
+                style="text-decoration: none;"
               >
                 {project.name}
               </a>
-              <span class="text-[15px] text-[var(--text-secondary)]">
+              <span class="text-[14.5px] text-[var(--text-secondary)] leading-relaxed">
                 {project.desc.split('.')[0]}.
               </span>
+            </div>
+            <div class="flex gap-2 mt-1.5">
+              {project.tech.map((t) => (
+                <span class="mono" style="font-size: 0.625rem;">{t.name}</span>
+              ))}
             </div>
           </li>
         ))}
       </ul>
     </section>
+
+    {projectsData.Packages && projectsData.Packages.length > 0 && (
+      <section>
+        <div class="mono mb-5">Packages</div>
+        
+        <ul class="space-y-0">
+          {projectsData.Packages.map((pkg) => (
+            <li class="py-3.5 border-b border-[var(--border-color)] last:border-b-0 project-item">
+              <div class="flex flex-col sm:flex-row sm:items-baseline gap-1 sm:gap-3">
+                <a 
+                  href={pkg.link || (pkg.repo ? `https://github.com/${pkg.repo}` : '#')}
+                  target="_blank" 
+                  rel="noopener noreferrer"
+                  class="project-name font-medium text-[var(--slate-800)] transition-colors"
+                  style="text-decoration: none;"
+                >
+                  {pkg.name}
+                </a>
+                <span class="text-[14.5px] text-[var(--text-secondary)] leading-relaxed">
+                  {pkg.desc.split('.')[0]}.
+                </span>
+              </div>
+              <div class="flex gap-2 mt-1.5">
+                {pkg.tech.map((t) => (
+                  <span class="mono" style="font-size: 0.625rem;">{t.name}</span>
+                ))}
+              </div>
+            </li>
+          ))}
+        </ul>
+      </section>
+    )}
   </div>
 </Layout>

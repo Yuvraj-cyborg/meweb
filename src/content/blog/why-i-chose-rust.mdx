@@ -1,0 +1,48 @@
+---
+title: "Why I chose Rust for systems programming"
+description: "A look at why Rust became my go-to language for building performant systems, and what the learning curve actually looks like."
+date: 2026-01-15
+tags: ["rust", "systems", "programming"]
+wordCount: 1240
+---
+
+When I first started building systems-level software, I reached for C. It felt like the natural choice — close to the metal, fast, and with decades of battle-tested libraries. But after spending a few months fighting <a data-glossary="A memory safety bug where a program continues to use a pointer after the memory it refers to has been freed." href="#">segfaults</a> and undefined behavior, I started looking for alternatives.
+
+## The ownership model
+
+Rust's <a data-glossary="A set of rules that the Rust compiler checks at compile time to ensure memory safety without a garbage collector." href="#">ownership system</a> is the thing that makes it unique. At first, it feels like the compiler is fighting you. Every borrow, every lifetime annotation, every `move` — it all feels unnecessarily strict.
+
+But here's the thing: the compiler is catching real bugs. The kind of bugs that would show up at 3am in production as a use-after-free or a <a data-glossary="A condition where two or more threads access shared data concurrently, and at least one modifies it, leading to unpredictable behavior." href="#">data race</a>. Once you internalize the ownership model, you start writing code that is correct by construction.
+
+```rust
+fn process_data(data: Vec<u8>) -> Result<Vec<u8>, Error> {
+    let mut buffer = data;
+    // The compiler guarantees exclusive access here
+    transform(&mut buffer)?;
+    Ok(buffer)
+}
+```
+
+## Performance without compromise
+
+One of the things I love about Rust is that you don't have to choose between safety and performance. The <a data-glossary="Abstractions that impose no additional runtime overhead compared to hand-written low-level code." href="#">zero-cost abstractions</a> mean that high-level constructs like iterators and closures compile down to the same machine code you'd write by hand.
+
+When I built [P2rent](https://github.com/Yuvraj-cyborg/p2rent), a peer-to-peer file transfer tool on QUIC, the performance was on par with C implementations — but the code was significantly easier to reason about and maintain.
+
+## The ecosystem
+
+Cargo is genuinely the best package manager I've used. Coming from the fragmented world of C/C++ build systems (CMake, Makefiles, autoconf), having a single tool that handles dependencies, building, testing, and documentation is a breath of fresh air.
+
+The crate ecosystem has matured enormously. Libraries like `tokio` for async runtime, `serde` for serialization, and `rayon` for data parallelism are production-grade and well-maintained.
+
+## The learning curve is real
+
+I won't sugarcoat it — Rust has a steep learning curve. The <a data-glossary="Rust's compile-time system that tracks references to ensure memory safety, preventing dangling pointers and data races." href="#">borrow checker</a> will humble you. Lifetimes will confuse you. And the first time you try to build a self-referential struct, you'll question your life choices.
+
+But the payoff is worth it. After about three months of consistent use, the ownership model becomes second nature. You start thinking about memory and concurrency in a way that makes you a better programmer in any language.
+
+## When not to use Rust
+
+Rust isn't the right tool for everything. For quick scripts, Python is still faster to write. For web frontends, JavaScript/TypeScript is the pragmatic choice. And for some embedded targets, C is still the only realistic option.
+
+But for systems programming — databases, networking, CLI tools, operating systems — Rust is my default choice, and it's been serving me well.

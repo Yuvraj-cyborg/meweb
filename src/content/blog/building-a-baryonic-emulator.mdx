@@ -1,0 +1,56 @@
+---
+title: "Building a baryonic emulator for weak lensing"
+description: "How I'm combining Rust particle-mesh simulations with PyTorch neural networks to emulate baryonic effects in cosmological surveys."
+date: 2026-02-01
+tags: ["physics", "deep-learning", "rust", "research"]
+wordCount: 1850
+---
+
+Cosmological surveys like Euclid and the Vera Rubin Observatory are going to map billions of galaxies. To extract meaningful cosmological parameters from this data, we need accurate models of how matter distributes itself across the universe.
+
+The problem? <a data-glossary="The physics of ordinary matter (protons, neutrons, electrons) — as opposed to dark matter — including processes like gas cooling, star formation, and feedback from supernovae and black holes." href="#">Baryonic physics</a> — the messy, complex behavior of ordinary matter — is incredibly expensive to simulate.
+
+## The problem with hydrodynamic simulations
+
+Full <a data-glossary="Computational simulations that model the motion of fluids (gas) under gravity, pressure, and other forces in astrophysical contexts." href="#">hydrodynamic simulations</a> like IllustrisTNG or BAHAMAS are the gold standard for modeling baryonic effects. They account for gas cooling, star formation, supernova feedback, and AGN feedback. But they're computationally prohibitive.
+
+A single simulation box can take millions of CPU hours to run. When you need to explore a parameter space of cosmological and baryonic models, this becomes completely intractable.
+
+## Enter emulation
+
+The idea behind Bayronik is simple: can we train a neural network to predict what a hydrodynamic simulation would produce, given only the output of a much cheaper gravity-only simulation?
+
+The approach couples two components:
+
+1. **A Rust N-body particle-mesh simulator** that efficiently computes gravity-only matter distributions
+2. **A PyTorch U-Net** that learns to "paint" baryonic effects onto these distributions
+
+The Rust simulator handles the computationally intensive particle dynamics, while the neural network learns the mapping from dark-matter-only to full-physics matter maps.
+
+## Why Rust for the simulator
+
+The <a data-glossary="A numerical method that combines particle-based gravity calculations with a mesh (grid) for efficiently computing long-range gravitational forces using FFTs." href="#">particle-mesh algorithm</a> involves dense numerical computation — FFTs, particle assignment, force interpolation. Rust's performance characteristics make it ideal for this:
+
+- Zero-cost abstractions for the mesh operations
+- Safe parallelism with `rayon` for particle updates
+- Predictable memory layout for cache-friendly access patterns
+
+The simulator runs within 5% of an equivalent C implementation but with none of the memory safety concerns.
+
+## The U-Net architecture
+
+The neural network takes 2D projected matter density maps as input and outputs the baryonic correction. We use a modified <a data-glossary="A convolutional neural network architecture with an encoder-decoder structure and skip connections, originally designed for biomedical image segmentation." href="#">U-Net</a> with:
+
+- Skip connections to preserve spatial information
+- <a data-glossary="A weight normalization technique that controls the spectral norm of weight matrices, stabilizing the training of deep networks." href="#">Spectral normalization</a> for training stability
+- A multi-scale loss function that weights both pixel-level and power spectrum accuracy
+
+The <a data-glossary="A statistical tool that decomposes a signal into its frequency components, showing how much structure exists at different spatial scales." href="#">power spectrum</a> constraint is crucial — we need the emulator to be accurate not just visually but in the statistical sense that matters for cosmological inference.
+
+## Current status
+
+The emulator is currently in active development. Early results on training data from the BAHAMAS simulation suite are promising, with power spectrum agreement at the 2-3% level up to scales of k ~ 10 h/Mpc.
+
+The next steps are extending to 3D and incorporating uncertainty quantification, so we can propagate emulator errors through the cosmological inference pipeline.
+
+This project sits at the intersection of everything I love — physics, systems programming, and deep learning. Building it has been one of the most rewarding technical challenges I've taken on.

@@ -1,0 +1,50 @@
+---
+title: "Understanding the QUIC protocol"
+description: "A deep dive into QUIC — the transport protocol behind HTTP/3 — and why it matters for modern networking."
+date: 2025-12-20
+tags: ["networking", "protocols", "systems"]
+wordCount: 1560
+---
+
+TCP has been the backbone of the internet for decades. It's reliable, well-understood, and battle-tested. But it also carries decades of baggage that makes it suboptimal for modern use cases.
+
+<a data-glossary="Quick UDP Internet Connections — a transport layer protocol developed by Google that runs over UDP, providing reliable, multiplexed, and encrypted connections." href="#">QUIC</a> — originally "Quick UDP Internet Connections" — was designed by Google to address these limitations. It's now the transport layer for HTTP/3 and is rapidly being adopted across the web.
+
+## The problem with TCP
+
+TCP was designed in an era of fixed connections. Its fundamental assumptions — in-order delivery, single stream per connection, kernel-space implementation — create real problems today:
+
+**<a data-glossary="A performance issue where a single slow or lost packet blocks all subsequent packets in the same connection, even if they belong to independent data streams." href="#">Head-of-line blocking</a>.** In HTTP/2 over TCP, a single lost packet blocks all multiplexed streams. This means a dropped packet on one resource stalls the delivery of completely unrelated resources.
+
+**Slow connection establishment.** TCP requires a <a data-glossary="The three-step process (SYN, SYN-ACK, ACK) used to establish a TCP connection between client and server before any data can be sent." href="#">three-way handshake</a>, and TLS adds another round trip on top. For short-lived connections, this overhead is significant.
+
+**Ossification.** Because TCP is implemented in kernel space and <a data-glossary="Network devices like firewalls, NATs, and load balancers that inspect and sometimes modify packet headers as they pass through the network." href="#">middleboxes</a> inspect TCP headers, it's extremely difficult to evolve the protocol. Any change risks being dropped by some firewall or NAT somewhere.
+
+## How QUIC solves these problems
+
+QUIC runs over UDP, which gives it the freedom to implement its own congestion control, reliability, and multiplexing in user space.
+
+**Independent streams.** Each QUIC stream is independently flow-controlled. A lost packet on one stream doesn't affect others. This eliminates head-of-line blocking at the transport layer.
+
+**0-RTT connection establishment.** QUIC integrates <a data-glossary="The latest version of the Transport Layer Security protocol, featuring a simplified handshake that can establish encrypted connections in just one round trip." href="#">TLS 1.3</a> directly into the handshake. For repeated connections, it can send data in the very first packet — zero round trips.
+
+**Connection migration.** QUIC connections are identified by a connection ID, not by the IP/port tuple. This means connections survive network changes — like switching from Wi-Fi to cellular.
+
+## The implementation landscape
+
+Several QUIC implementations are now production-ready:
+
+- **quiche** (Cloudflare, Rust) — the one I used for P2rent
+- **quinn** (Rust) — pure Rust, built on tokio
+- **ngtcp2** (C) — used by curl
+- **msquic** (Microsoft, C) — used in Windows
+
+When I built P2rent using `quinn`, the experience was remarkably smooth. The API abstracts away the complexity of the protocol while still giving you control over stream management and flow control.
+
+## What this means for application developers
+
+For most developers, QUIC adoption will be transparent — your HTTP client library will handle it. But understanding the protocol gives you superpowers when building custom networking applications.
+
+If you're building anything that involves real-time data transfer, multiplexed streams, or needs to work across unreliable networks, QUIC should be on your radar.
+
+The protocol is still evolving. Extensions like QUIC datagrams (RFC 9221) and multipath QUIC are opening up new possibilities for applications that TCP could never efficiently support.
