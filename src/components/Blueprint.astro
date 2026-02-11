@@ -1,0 +1,24 @@
+---
+export interface Props {
+  figNum?: string;
+  type?: string;
+  year?: string;
+  caption?: string;
+}
+
+const { figNum, type, year, caption } = Astro.props;
+---
+
+<div class="blueprint-wrapper" style="margin: 2.5rem 0;">
+  <div class="blueprint">
+    {figNum && <span class="blueprint-label">FIG_{figNum}</span>}
+    {type && <span class="blueprint-type">[ {type} ]</span>}
+    {year && <span class="blueprint-year">© {year}</span>}
+    <slot />
+  </div>
+  {caption && (
+    <p class="blueprint-caption">
+      <em>fig {figNum}.</em> {caption}
+    </p>
+  )}
+</div>

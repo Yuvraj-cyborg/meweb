@@ -18,6 +18,20 @@ const totalWords = posts.reduce((acc, post) => acc + (post.data.wordCount || 0),
       </p>
     </section>
 
+    <!-- Stats row (monospace, like reference) -->
+    <section class="flex gap-12 py-4 border-y border-[var(--border-color)]">
+      <div class="flex items-baseline gap-3">
+        <span class="mono">Posts:</span>
+        <span class="mono" style="color: var(--slate-700);">{posts.length}</span>
+      </div>
+      {totalWords > 0 && (
+        <div class="flex items-baseline gap-3">
+          <span class="mono">Total words:</span>
+          <span class="mono" style="color: var(--slate-700);">{(totalWords / 1000).toFixed(1)}K</span>
+        </div>
+      )}
+    </section>
+
     <!-- Posts List -->
     <section>
       {posts.map((post) => {
